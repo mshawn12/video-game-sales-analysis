@@ -5,5 +5,7 @@ Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypothese
 ## Background Information
 
 ## Process
-- Step 1
+- Step 1: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs
+- Step 2: Creating an ERD Diagram
+
 
