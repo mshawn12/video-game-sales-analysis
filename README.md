@@ -10,11 +10,17 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 - Step 1: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true">
 
+
 - Step 2: Creating an ERD Diagram using https://app.quickdatabasediagrams.com/ to develop SQL schema
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/ERD_Process.png?raw=true">
 
-- Step 3: Leveraging pgAdmin and SQL to...
+
+- Step 3: Leveraging pgAdmin 4 and SQL to...
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/postgres_sql_steps.png?raw=true">
+
+
+- Step 4: 
+
 
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
