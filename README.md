@@ -1,6 +1,6 @@
 # video-game-sales-analysis
 Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video-game-header.png?raw=true">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 
 ## Background Information
 The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings) in order to test various hypotheses about video game genres.
@@ -8,13 +8,13 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 
 ## Process
 - Step 1: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter-notebook.png?raw=true">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true">
 
 - Step 2: Creating an ERD Diagram using https://app.quickdatabasediagrams.com/ to develop SQL schema
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/ERD-Process.png?raw=true">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/ERD_Process.png?raw=true">
 
 - Step 3: Leveraging pgAdmin and SQL to...
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/postgres-sql-steps.png?raw=true">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/postgres_sql_steps.png?raw=true">
 
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
