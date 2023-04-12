@@ -7,7 +7,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 
 
 ## Process
-- Step 1: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs
+- Step 1: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true">
 
 - Step 2: Creating an ERD Diagram using https://app.quickdatabasediagrams.com/ to develop SQL schema
