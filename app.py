@@ -63,9 +63,23 @@ def dashboard():
 
     return render_template("dashboard.html",games=df.to_json(orient= "records"))
 
+@app.route("/actiondashboard")
+def actiondashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completevideogamedata WHERE genre='Action'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("actiondashboard.html",games=df.to_json(orient= "records"))
 
 
-
+@app.route("/api/v1.0/actiondashboard")
+def actiondashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completevideogamedata WHERE genre='Action'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
 
 
 

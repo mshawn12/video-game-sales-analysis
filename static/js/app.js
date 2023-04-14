@@ -121,10 +121,11 @@
 
 // Create function to change options / data via dropdown
 
-// function optionChanged(newSample){
-//     generateCharts(newSample);
-//     generateMetadata(newSample);
-// }
+function optionChanged(newGenre){
+    // generateCharts(newSample);
+    // generateMetadata(newSample);
+    alert(newGenre)
+}
 
 
 // Call intialize function

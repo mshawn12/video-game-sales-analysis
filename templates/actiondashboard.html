@@ -22,9 +22,10 @@
     </div>
 
     <div id="navigation">
-        <a href="/dashboard">All Genres </a>  <a href="/actiondashboard">Action</a>
-    </div>
-    <!-- <div class="row">
+      <a href="/dashboard">All Genres </a>  <a href="/actiondashboard">Action</a>
+  </div>
+<!--   
+    <div class="row">
       <div class="col-md-2">
         <div class="well">
           <h5>Select Genre:</h5>
@@ -118,7 +119,7 @@
     // generateMetadata(newSample);
    
 }
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
+    d3.json("http://127.0.0.1:5000/api/v1.0/actiondashboard").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
 let genres = []
@@ -155,7 +156,7 @@ let ratings = []
         console.log(ratings)
 
         var trace = {
-            x: names,
+            x: genres,
             y: totalglobalsales,
             type: 'bar'
 
@@ -171,7 +172,7 @@ let ratings = []
 
 
         var trace2 = {
-            x: publishers,
+            x: genres,
             y: criticscores,
             type: 'bar'
 
@@ -179,22 +180,22 @@ let ratings = []
         var data2 = [trace2];
         
         var layout2 = {
-            title: "Critic Score by Publisher"
+            title: "Critic Score by Genre"
              
         }
 
         Plotly.newPlot('plot2', data2, layout2)
 
         var trace3 = {
-            x: developers,
-            y: criticscores,
+            x: genres,
+            y: userscores,
             type: 'bar'
 
         }   
         var data3 = [trace3];
         
         var layout3 = {
-            title: "Critic Score by Developer"
+            title: "User Score by Genre"
              
         }
 
