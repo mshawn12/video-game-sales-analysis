@@ -68,6 +68,9 @@
   <div id="plot4"></div>
   <br/>
   <div id="bubble"></div>
+  <br/>
+
+  <div id="plotmap"></div>
   <div id="gauge"></div>
  <script>
     // var data = {{games|tojson|safe}};
@@ -173,6 +176,17 @@ let gamecount = names.length
         // console.log(criticscores)
         // console.log(userscores)
         // console.log(ratings)
+
+// Bubble Map
+var tracemapna = {
+    type:'scattergeo',
+    Ion:[100,400],
+    lat:[0,0],
+    marker: {color:['red','blue'],
+    size: [30,50],
+    mode:'markers'}}
+
+Plotly.newPlot('plotmap', [tracemapna]);
 
 
 // Chart scores
