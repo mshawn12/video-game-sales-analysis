@@ -84,7 +84,7 @@ def jsondata():
 @app.route("/api/v1.0/completedata")
 def completedata():
     conn = engine.connect()
-    query = "SELECT * FROM completedata3"
+    query = "SELECT * FROM completedata"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -100,7 +100,7 @@ def sumglobalsales():
 @app.route("/api/v1.0/genres")
 def genres():
     conn = engine.connect()
-    query = "SELECT DISTINCT genre FROM completedata3"
+    query = "SELECT DISTINCT genre FROM completedata"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
@@ -108,7 +108,7 @@ def genres():
 # @app.route("/api/v1.0/json3")
 # def json3():
 #     conn = engine.connect()
-#     query = "SELECT json_agg(completedata3) FROM completedata3"
+#     query = "SELECT json_agg(completedata) FROM completedata"
 #     df = pd.read_sql(query, conn)
 #     print(df)
 #     return df.to_json(orient= "records")
@@ -116,7 +116,7 @@ def genres():
 # @app.route("/api/v1.0/json4")
 # def json4():
 #     conn = engine.connect()
-#     query = "SELECT * FROM completedata3"
+#     query = "SELECT * FROM completedata"
 #     df = pd.read_sql(query, conn)
 #     # print(df)
 #     return df.to_json(orient= "records")
@@ -128,7 +128,7 @@ def genres():
 @app.route("/api/v1.0/genressales")
 def genressales():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), genre FROM completedata3 GROUP BY genre"
+    query = "SELECT SUM(globalsales), genre FROM completedata GROUP BY genre"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")  
@@ -137,7 +137,7 @@ def genressales():
 @app.route("/api/v1.0/avggenressales")
 def avggenressales():
     conn = engine.connect()
-    query = "SELECT AVG(globalsales), genre FROM completedata3 GROUP BY genre"
+    query = "SELECT AVG(globalsales), genre FROM completedata GROUP BY genre"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")  
@@ -148,7 +148,7 @@ def avggenressales():
 @app.route("/api/v1.0/gamesales")
 def gamesales():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), name FROM completedata3 GROUP BY name ORDER BY SUM(globalsales) DESC"
+    query = "SELECT SUM(globalsales), name FROM completedata GROUP BY name ORDER BY SUM(globalsales) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")      
@@ -158,7 +158,7 @@ def gamesales():
 @app.route("/api/v1.0/nasales")
 def nasales():
     conn = engine.connect()
-    query = "SELECT SUM(nasales) FROM completedata3"
+    query = "SELECT SUM(nasales) FROM completedata"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -167,7 +167,7 @@ def nasales():
 @app.route("/api/v1.0/nasalesgenre")
 def nasalesgenre():
     conn = engine.connect()
-    query = "SELECT SUM(nasales), genre FROM completedata3 GROUP BY genre ORDER BY SUM(nasales) DESC"
+    query = "SELECT SUM(nasales), genre FROM completedata GROUP BY genre ORDER BY SUM(nasales) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -176,7 +176,7 @@ def nasalesgenre():
 @app.route("/api/v1.0/eusales")
 def eusales():
     conn = engine.connect()
-    query = "SELECT SUM(eusales) FROM completedata3"
+    query = "SELECT SUM(eusales) FROM completedata"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -185,7 +185,7 @@ def eusales():
 @app.route("/api/v1.0/eusalesgenre")
 def eusalesgenre():
     conn = engine.connect()
-    query = "SELECT SUM(eusales), genre FROM completedata3 GROUP BY genre ORDER BY SUM(eusales) DESC"
+    query = "SELECT SUM(eusales), genre FROM completedata GROUP BY genre ORDER BY SUM(eusales) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -194,7 +194,7 @@ def eusalesgenre():
 @app.route("/api/v1.0/jpsales")
 def jpsales():
     conn = engine.connect()
-    query = "SELECT SUM(jpsales) FROM completedata3"
+    query = "SELECT SUM(jpsales) FROM completedata"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -203,7 +203,7 @@ def jpsales():
 @app.route("/api/v1.0/jpsalesgenre")
 def jpsalesgenre():
     conn = engine.connect()
-    query = "SELECT SUM(jpsales), genre FROM completedata3 GROUP BY genre ORDER BY SUM(jpsales) DESC"
+    query = "SELECT SUM(jpsales), genre FROM completedata GROUP BY genre ORDER BY SUM(jpsales) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -212,7 +212,7 @@ def jpsalesgenre():
 @app.route("/api/v1.0/publishersales")
 def publishersales():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), publisher, genre FROM completedata3 GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    query = "SELECT SUM(globalsales), publisher, genre FROM completedata GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records") 
@@ -221,7 +221,7 @@ def publishersales():
 @app.route("/api/v1.0/developersales")
 def developersales():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), developer, genre FROM completedata3 GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    query = "SELECT SUM(globalsales), developer, genre FROM completedata GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records") 
@@ -231,7 +231,7 @@ def developersales():
 @app.route("/api/v1.0/gamecriticscore")
 def gamecriticscore():
     conn = engine.connect()
-    query = "SELECT AVG(criticscore), name, genre FROM completedata3 GROUP BY name, genre"
+    query = "SELECT AVG(criticscore), name, genre FROM completedata GROUP BY name, genre"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -240,7 +240,7 @@ def gamecriticscore():
 @app.route("/api/v1.0/gameusercriticscore")
 def gameusercriticscore():
     conn = engine.connect()
-    query = "SELECT AVG(userscore), name, genre FROM completedata3 GROUP BY name, genre ORDER BY AVG(userscore) DESC"
+    query = "SELECT AVG(userscore), name, genre FROM completedata GROUP BY name, genre ORDER BY AVG(userscore) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -249,7 +249,7 @@ def gameusercriticscore():
 @app.route("/api/v1.0/genrecriticscore")
 def genrecriticscore():
     conn = engine.connect()
-    query = "SELECT AVG(criticscore), genre FROM completedata3 GROUP BY genre ORDER BY AVG(criticscore) DESC"
+    query = "SELECT AVG(criticscore), genre FROM completedata GROUP BY genre ORDER BY AVG(criticscore) DESC"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
@@ -258,7 +258,7 @@ def genrecriticscore():
 @app.route("/api/v1.0/genreusercriticscore")
 def genreusercriticscore():
     conn = engine.connect()
-    query = "SELECT AVG(userscore), genre FROM completedata3 GROUP BY genre"
+    query = "SELECT AVG(userscore), genre FROM completedata GROUP BY genre"
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")

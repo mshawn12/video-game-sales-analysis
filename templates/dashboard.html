@@ -51,6 +51,7 @@
   <div id="plot2"></div>
   <div id="plot3"></div>
   <div id="bubble"></div>
+  <div id="gauge"></div>
  <script>
     // var data = {{games|tojson|safe}};
     // var data = {{games}}
@@ -153,7 +154,7 @@ let ratings = []
         var data = [trace];
         
         var layout = {
-            title: "test"
+            title: "Global Sales by Genre"
              
         }
 
@@ -169,7 +170,7 @@ let ratings = []
         var data2 = [trace2];
         
         var layout2 = {
-            title: "test"
+            title: "Critic Score by Genre"
              
         }
 
@@ -184,12 +185,38 @@ let ratings = []
         var data3 = [trace3];
         
         var layout3 = {
-            title: "test"
+            title: "User Score by Genre"
              
         }
 
         Plotly.newPlot('plot3', data3, layout3)
         
+        let bubbleLayout = {
+            title: "",
+            margin: {t: 0},
+            hovermode: "closest",
+            xaxis: {title: "Critic Score vs. Global Sales"},
+            margin: {t: 30}
+
+        };
+
+        let bubbleData = [
+            {
+                x: criticscores,
+                y: totalglobalsales,
+                text: genres,
+                mode: "markers",
+                marker: {
+                    size: totalglobalsales,
+                    color: genres,
+                    colorscale: "Earth"        
+                }
+            }
+
+        ]
+        // Generate bubble chart
+        Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+
     });
 
 </script>
@@ -205,6 +232,7 @@ let ratings = []
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="./static/js/app.js"></script>
+  <script src="./static/js/gauge.js"></script>
 
   
 </body>
