@@ -15,16 +15,15 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
         <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard-banner.png?raw=true" alt="Video Game Banner" width="100%">
-        <!-- <h1>Video Game Genre Analysis</h1>
-        <p>Use the interactive charts below to explore the dataset</p> -->
-      </div>
+     <!-- <div class="col-md-12 jumbotron text-center"> -->
+        <center><h3>Action</h3></center><br/>
+    <!-- </div> -->
     </div>
 
-    <div id="navigation">
-        <button><a href="/dashboard">All Genres</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/actiondashboard">Action</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/adventuredashboard">Adventure</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fightingdashboard">Fighting</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fpsdashboard">FPS</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/miscdashboard">Misc</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/platformdashboard">Platform</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/puzzledashboard">Puzzle</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/racingdashboard">Racing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/roleplayingdashboard">Role-Playing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/simulationdashboard">Simulation</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/sportsdashboard">Sports</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/strategydashboard">Strategy</a></button>
-    </div>
+    <div id="navigation"><strong>
+        <button><a href="/dashboard">All Genres</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/actiondashboard">Action</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/adventuredashboard">Adventure</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fightingdashboard">Fighting</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fpsdashboard">FPS</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/miscdashboard">Misc</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/platformdashboard">Platform</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/puzzledashboard">Puzzle</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/racingdashboard">Racing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/roleplayingdashboard">Role-Playing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/simulationdashboard">Simulation</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/sportsdashboard">Sports</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/strategydashboard">Strategy</a></button>&nbsp;&nbsp;&nbsp;<a href="https://github.com/mshawn12/video-game-sales-analysis"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEX///+6u711eHtaXWFMUFQkKS7j5OQwNTrx8fKRk5bV1tc+Q0esrrDIycqDhomeoaNna24OVeM5AAAA/ElEQVR4AX3T0a6EIAwE0AEY2oLr3v//2iumIaC650UfJkw1BZMQUyZzigEPShQOEhUXJlyIYaaZN1kxVOEDqXAqfCQ6nZ9j46TFRDL7fDxswNbIdBDKBgQeDIciPHwAqJcWBVBHSaQHVoVdBCD0ilVgJ+NFcaGNXUC8HeA2djsSO8Udu4TsVXeJhwx27TVA8IQHjR3a7xka0ttXBB9y9+fLCLsH+X3+DQxjGQwLGyuBSFrIZNs/cJ9vI70BKKRUzeRYkD8OxU+TUuQsPFU6em8mI9Rsg6PL09JWTNal9bWPZrYGpN4uzhLIipldA4aLsovAicSCOy0jrBj+Adb8C4ZUKU58AAAAAElFTkSuQmCC" style="height:28px;"></img></a>
+    </strong></div>
     <br/>
     <br/>
     
@@ -55,11 +54,25 @@
     </div>
   </div> -->
 
-  <div id="plotscores"></div>
+ 
+  <table>
+    <tr>
+    <td>
+  <div id="gauge"></div>
+  </td>
+  <td>
+  <div id="usergauge"></div>
+  </td>
+  </tr>
+</table>
+<br/>
+<div id="plotscores"></div>
+<br/>
+<div id="bubble"></div>
+<br/>
+  <div id="plotregions"></div>
   <br/>
   <div id="plot"></div>
-  <br/>
-  <div id="plotregions"></div>
   <br/>
   <div id="plot2"></div>
   <br/>
@@ -67,8 +80,10 @@
   <br/>
   <div id="plot4"></div>
   <br/>
-  <div id="bubble"></div>
-  <div id="gauge"></div>
+
+
+  <div id="plotmap"></div>
+
  <script>
     // var data = {{games|tojson|safe}};
     // var data = {{games}}
@@ -174,6 +189,53 @@ let gamecount = names.length
         // console.log(userscores)
         // console.log(ratings)
 
+// Gauge
+var criticgaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: 50,
+    title: { text: "Avg. Critic Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 100] } }
+  }
+];
+
+var criticgaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('gauge', criticgaugedata, criticgaugelayout);
+
+// User Gauge
+var usergaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: 7,
+    title: { text: "Avg. User Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 10] } }
+  }
+];
+
+var usergaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
+
+// Bubble Map
+var tracemapna = {
+    type:'scattergeo',
+    Ion:[100,400],
+    lat:[0,0],
+    marker: {color:['red','blue'],
+    size: [30,50],
+    mode:'markers'}}
+
+Plotly.newPlot('plotmap', [tracemapna]);
+
 
 // Chart scores
 var tracecritic = {
@@ -237,7 +299,10 @@ var traceeu = {
             x: genres,
             y: totaleusales,
             type: 'bar',
-            name: 'EU Sales'
+            name: 'EU Sales',
+            marker: {
+                color: 'rgb(142,124,195)'
+            }
 
         }   
 
@@ -245,7 +310,10 @@ var tracejp = {
             x: genres,
             y: totaljpsales,
             type: 'bar',
-            name: 'JP Sales'
+            name: 'JP Sales',
+            marker: {
+                color: 'rgb(247,59,132)'
+            }
 
         }   
         var dataregions = [tracena,traceeu,tracejp];
@@ -322,7 +390,7 @@ var tracejp = {
                 mode: "markers",
                 marker: {
                     size: totalglobalsales,
-                    color: genres,
+                    color: criticscores,
                     colorscale: "Bluered"        
                 }
             }
@@ -336,11 +404,6 @@ var tracejp = {
 </script>
 
 
-<script>
-
- 
- 
-</script>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
