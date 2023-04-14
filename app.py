@@ -63,13 +63,13 @@ def test():
 
 # Main Routes
 
-@app.route("/")
+@app.route("/home")
 def home():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
-    name = "test"
-    return render_template("dashboard.html", games=data,name=name)
+    name = "Home"
+    return render_template("index.html", games=data,name=name)
 
-@app.route("/dashboard")
+@app.route("/")
 def dashboard():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
     conn= engine.connect()
@@ -77,6 +77,18 @@ def dashboard():
     df = pd.read_sql(query, conn)
 
     return render_template("dashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/team")
+def team():
+    return render_template("team.html")
+
+@app.route("/resources")
+def resources():
+    return render_template("resources.html")
+
+
+
 
 # Action Dashboard
 @app.route("/actiondashboard")
