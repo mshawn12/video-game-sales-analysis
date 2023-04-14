@@ -52,7 +52,7 @@ def completevideogamedata():
 def home():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
     name = "test"
-    return render_template("index.html", games=data,name=name)
+    return render_template("dashboard.html", games=data,name=name)
 
 @app.route("/dashboard")
 def dashboard():
