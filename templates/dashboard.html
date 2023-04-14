@@ -71,7 +71,7 @@
   <br/>
 
   <div id="plotmap"></div>
-  <div id="gauge"></div>
+  <div id="gauge"></div><div id="usergauge"></div>
  <script>
     // var data = {{games|tojson|safe}};
     // var data = {{games}}
@@ -176,6 +176,42 @@ let gamecount = names.length
         // console.log(criticscores)
         // console.log(userscores)
         // console.log(ratings)
+
+// Gauge
+var criticgaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: 50,
+    title: { text: "Critic Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 100] } }
+  }
+];
+
+var criticgaugelayout = { 
+    // width: 600, height: 400 
+};
+Plotly.newPlot('gauge', criticgaugedata, criticgaugelayout);
+
+// User Gauge
+var usergaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: 7,
+    title: { text: "User Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 10] } }
+  }
+];
+
+var usergaugelayout = { 
+    // width: 600, height: 400 
+};
+Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
 // Bubble Map
 var tracemapna = {
