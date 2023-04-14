@@ -16,8 +16,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Video Game Genre Analysis</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+        <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard-banner.png?raw=true" alt="Video Game Banner" width="100%">
+        <!-- <h1>Video Game Genre Analysis</h1>
+        <p>Use the interactive charts below to explore the dataset</p> -->
       </div>
     </div>
 
@@ -54,6 +55,8 @@
     </div>
   </div> -->
 
+  <div id="plotscores"></div>
+  <br/>
   <div id="plot"></div>
   <br/>
   <div id="plotregions"></div>
@@ -172,6 +175,38 @@ let gamecount = names.length
         // console.log(ratings)
 
 
+// Chart scores
+var tracecritic = {
+            x: genres,
+            y: criticscores,
+            type: 'bar',
+            name: 'Critic Review Scores',
+            marker: {
+                color: 'rgb(142,124,195)'
+            }
+
+        }   
+
+var traceuser = {
+            x: genres,
+            y: userscores,
+            type: 'bar',
+            name: 'User Review Scores',
+            marker: {
+                color: 'rgb(8,48,107)'
+            }
+
+        }   
+
+        var datascores = [tracecritic,traceuser];
+
+        
+        var layoutscores = {
+            title: "Critic Score (Out of 100) | User Score (Out of 10)"            
+             
+        }
+
+        Plotly.newPlot('plotscores', datascores, layoutscores);
 
 // Chart 1
         var trace = {
@@ -183,7 +218,7 @@ let gamecount = names.length
         var data = [trace];
         
         var layout = {
-            title: "Global Sales by Genre"            
+            title: "Global Sales by Game"            
              
         }
 
