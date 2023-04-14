@@ -97,6 +97,29 @@ def actiondashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+
+# Average Critic Score for Genres - Action
+@app.route("/api/v1.0/avggamecriticscoreaction")
+def avggamecriticscoreaction():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Action'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Action
+@app.route("/api/v1.0/avggameuserscoreaction")
+def avggameuserscoreaction():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Action'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
+
+
 # Adventure Dashboard
 @app.route("/adventuredashboard")
 def adventuredashboard():
@@ -463,6 +486,28 @@ def developersales():
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records") 
+
+
+# Average Critic Score for Games
+@app.route("/api/v1.0/avggamecriticscore")
+def avggamecriticscore():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Games
+@app.route("/api/v1.0/avggameuserscore")
+def avggameuserscore():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
 
 
 # Average Critic Score for Games

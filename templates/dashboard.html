@@ -128,11 +128,13 @@
     </div>
   </div> -->
 
+
+<!-- Chart setup -->
  
   <table>
     <tr>
     <td>
-  <div id="gauge"></div>
+  <div id="criticgauge"></div>
   </td>
   <td>
   <div id="usergauge"></div>
@@ -158,8 +160,8 @@
 
   <div id="plotmap"></div>
 
- <script>
-    // var data = {{games|tojson|safe}};
+ <!-- <script> -->
+    <!-- // var data = {{games|tojson|safe}};
     // var data = {{games}}
     // var data = "http://127.0.0.1:5000/api/v1.0/completedata"
 //     console.log(data);
@@ -190,7 +192,7 @@
 
 //     console.log(data) -->
 
-    // let selector = d3.select("#selDataset");
+    <!-- // let selector = d3.select("#selDataset");
     
 
     // //call API
@@ -210,9 +212,9 @@
         // generateMetadata(sampleOne);
 
     // })
-    
+     --> 
 
-</script>
+<!-- </script> -->
 
 <script>
 //     function optionChanged(newGenre){
@@ -237,7 +239,7 @@ let ratings = []
 let gamecount = names.length
 
         //loop through and generate option links from dataset
-        console.log(gamedata)
+        // console.log(gamedata)
         for(let index = 0; index < gamedata.length; index++){
             totalglobalsales.push(gamedata[index].globalsales)
             genres.push(gamedata[index].genre)
@@ -264,22 +266,6 @@ let gamecount = names.length
         // console.log(ratings)
 
 // Gauge
-var criticgaugedata = [
-  {
-    domain: { x: [0, 1], y: [0, 1] },
-    value: 50,
-    title: { text: "Avg. Critic Score" },
-    type: "indicator",
-    mode: "gauge+number",
-    delta: { reference: 400 },
-    gauge: { axis: { range: [null, 100] } }
-  }
-];
-
-var criticgaugelayout = { 
-    width: 600, height: 400 
-};
-Plotly.newPlot('gauge', criticgaugedata, criticgaugelayout);
 
 // User Gauge
 var usergaugedata = [
@@ -476,6 +462,64 @@ var tracejp = {
     });
 
 </script>
+
+<!-- Pulling average critic scores & creating gauges -->
+<script>
+    d3.json("/api/v1.0/avggamecriticscore").then((data) =>{
+        let avggamecriticscore = data[0].avg;
+        console.log(avggamecriticscore);
+
+
+var criticgaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: avggamecriticscore,
+    title: { text: "Avg. Critic Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 100] } }
+  }
+];
+
+var criticgaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('criticgauge', criticgaugedata, criticgaugelayout);
+
+    });
+
+</script>
+
+<!-- Pulling average user scores & creating gauges -->
+<script>
+    d3.json("/api/v1.0/avggameuserscore").then((data) =>{
+        let avggameuserscore = data[0].avg;
+        console.log(avggameuserscore);
+
+
+var usergaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: avggameuserscore,
+    title: { text: "Avg. User Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 100] } }
+  }
+];
+
+var usergaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
+
+    });
+
+</script>
+
+
 <footer>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true">
 </footer>
