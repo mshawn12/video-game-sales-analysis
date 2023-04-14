@@ -22,10 +22,10 @@
     </div>
 
     <div id="navigation">
-        <a href="/dashboard">All Genres </a>  <a href="/actiondashboard">Action</a>
-    </div>
-    
-    <!-- <div class="row">
+      <a href="/dashboard">All Genres </a>  <a href="/actiondashboard">Action</a>
+  </div>
+<!--   
+    <div class="row">
       <div class="col-md-2">
         <div class="well">
           <h5>Select Genre:</h5>
@@ -38,7 +38,7 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div> -->
-      <!-- <div class="col-md-5">
+      <div class="col-md-5">
         <div id="bar"></div>
       </div>
       <div class="col-md-5">
@@ -50,7 +50,7 @@
         <div id="bubble"></div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div id="plot"></div>
   <div id="plot2"></div>
@@ -90,37 +90,37 @@
 
 //     console.log(data) -->
 
-    // let selector = d3.select("#selDataset");
+    let selector = d3.select("#selDataset");
     
 
-    // //call API
-    // d3.json("http://127.0.0.1:5000/api/v1.0/genres").then((data) =>{
-    //     // console.log(data.names);
-    //     let gamedata = data;
+    //call API
+    d3.json("http://127.0.0.1:5000/api/v1.0/genres").then((data) =>{
+        // console.log(data.names);
+        let gamedata = data;
 
-    //     //loop through and generate option links from dataset
-    //     for(let index = 0; index < gamedata.length; index++){
-    //         console.log(gamedata[index].genre)
-    //         selector.append("option").text(gamedata[index].genre).property("value", gamedata[index].genre);
+        //loop through and generate option links from dataset
+        for(let index = 0; index < gamedata.length; index++){
+            console.log(gamedata[index].genre)
+            selector.append("option").text(gamedata[index].genre).property("value", gamedata[index].genre);
             
-    //     }
-    //     let gameOne = gamedata[0];
+        }
+        let gameOne = gamedata[0];
 
         //generateCharts(gameOne);
         // generateMetadata(sampleOne);
 
-    // })
+    })
     
 
 </script>
 
 <script>
-//     function optionChanged(newGenre){
-//     // generateCharts(newSample);
-//     // generateMetadata(newSample);
+    function optionChanged(newGenre){
+    // generateCharts(newSample);
+    // generateMetadata(newSample);
    
-// }
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
+}
+    d3.json("http://127.0.0.1:5000/api/v1.0/actiondashboard").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
 let genres = []
@@ -147,17 +147,17 @@ let ratings = []
         }
         
        
-        // console.log(totalglobalsales)
-        // console.log(genres)
-        // console.log(names)
-        // console.log(developers)
-        // console.log(publishers)
-        // console.log(criticscores)
-        // console.log(userscores)
-        // console.log(ratings)
+        console.log(totalglobalsales)
+        console.log(genres)
+        console.log(names)
+        console.log(developers)
+        console.log(publishers)
+        console.log(criticscores)
+        console.log(userscores)
+        console.log(ratings)
 
         var trace = {
-            x: names,
+            x: genres,
             y: totalglobalsales,
             type: 'bar'
 
@@ -173,7 +173,7 @@ let ratings = []
 
 
         var trace2 = {
-            x: publishers,
+            x: genres,
             y: criticscores,
             type: 'bar'
 
@@ -181,22 +181,22 @@ let ratings = []
         var data2 = [trace2];
         
         var layout2 = {
-            title: "Critic Score by Publisher"
+            title: "Critic Score by Genre"
              
         }
 
         Plotly.newPlot('plot2', data2, layout2)
 
         var trace3 = {
-            x: developers,
-            y: criticscores,
+            x: genres,
+            y: userscores,
             type: 'bar'
 
         }   
         var data3 = [trace3];
         
         var layout3 = {
-            title: "Critic Score by Developer"
+            title: "User Score by Genre"
              
         }
 
@@ -204,14 +204,14 @@ let ratings = []
 
         var trace4 = {
             x: ratings,
-            y: totalglobalsales,
+            y: globalsales,
             type: 'bar'
 
         }   
         var data4 = [trace4];
         
-        var layout4 = {
-            title: "Global Sales by Rating"
+        var layout3 = {
+            title: "User Score by Genre"
              
         }
 
