@@ -48,6 +48,21 @@ def completevideogamedata():
     # print(df)
     return df.to_json(orient= "records")
 
+
+
+# Test Route
+@app.route("/test")
+def test():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    name = "test"
+    return render_template("test.html", games=data,name=name)
+
+
+
+
+
+# Main Routes
+
 @app.route("/")
 def home():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
