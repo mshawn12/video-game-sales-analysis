@@ -63,6 +63,7 @@ def dashboard():
 
     return render_template("dashboard.html",games=df.to_json(orient= "records"))
 
+# Action Dashboard
 @app.route("/actiondashboard")
 def actiondashboard():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
@@ -81,7 +82,215 @@ def actiondashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+# Adventure Dashboard
+@app.route("/adventuredashboard")
+def adventuredashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Adventure'"
+    df = pd.read_sql(query, conn)
 
+    return render_template("adventuredashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/adventuredashboard")
+def adventuredashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Adventure'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Puzzle Dashboard
+@app.route("/puzzledashboard")
+def puzzledashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Puzzle'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("puzzledashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/puzzledashboard")
+def puzzledashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Puzzle'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Strategy Dashboard
+@app.route("/strategydashboard")
+def strategydashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Strategy'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("strategydashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/strategydashboard")
+def strategydashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Strategy'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Role-Playing Dashboard
+@app.route("/roleplayingdashboard")
+def roleplayingdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Role-Playing'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("roleplayingdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/roleplayingdashboard")
+def roleplayingdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Role-Playing'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Simulation Dashboard
+@app.route("/simulationdashboard")
+def simulationdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Simulation'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("simulationdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/simulationdashboard")
+def simulationdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Simulation'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Misc Dashboard
+@app.route("/miscdashboard")
+def miscdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Misc'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("miscdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/miscdashboard")
+def miscdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Misc'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Fighting Dashboard
+@app.route("/fightingdashboard")
+def fightingdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Fighting'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("fightingdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/fightingdashboard")
+def fightingdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Fighting'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Sports Dashboard
+@app.route("/sportsdashboard")
+def sportsdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Sports'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("sportsdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/sportsdashboard")
+def sportsdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Sports'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Racing Dashboard
+@app.route("/racingdashboard")
+def racingdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Racing'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("racingdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/racingdashboard")
+def racingdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Racing'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+# FPS Dashboard
+@app.route("/fpsdashboard")
+def fpsdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Shooter'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("fpsdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/fpsdashboard")
+def fpsdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Shooter'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+# Platform Dashboard
+@app.route("/platformdashboard")
+def platformdashboard():
+    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Platform'"
+    df = pd.read_sql(query, conn)
+
+    return render_template("platformdashboard.html",games=df.to_json(orient= "records"))
+
+
+@app.route("/api/v1.0/platformdashboard")
+def platformdashboardapi():
+    conn= engine.connect()
+    query = "SELECT * FROM completedata WHERE genre='Platform'"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
 
 
 

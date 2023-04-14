@@ -22,8 +22,10 @@
     </div>
 
     <div id="navigation">
-        <a href="/dashboard">All Genres </a>  <a href="/actiondashboard">Action</a>
+        <button><a href="/dashboard">All Genres</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/actiondashboard">Action</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/adventuredashboard">Adventure</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fightingdashboard">Fighting</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fpsdashboard">FPS</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/miscdashboard">Misc</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/platformdashboard">Platform</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/puzzledashboard">Puzzle</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/racingdashboard">Racing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/roleplayingdashboard">Role-Playing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/simulationdashboard">Simulation</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/sportsdashboard">Sports</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/strategydashboard">Strategy</a></button>
     </div>
+    <br/>
+    <br/>
     
     <!-- <div class="row">
       <div class="col-md-2">
@@ -53,9 +55,15 @@
   </div> -->
 
   <div id="plot"></div>
+  <br/>
+  <div id="plotregions"></div>
+  <br/>
   <div id="plot2"></div>
+  <br/>
   <div id="plot3"></div>
+  <br/>
   <div id="plot4"></div>
+  <br/>
   <div id="bubble"></div>
   <div id="gauge"></div>
  <script>
@@ -125,12 +133,16 @@
         let gamedata = data;
 let genres = []
 let totalglobalsales = []
+let totalnasales = []
+let totaleusales = []
+let totaljpsales = []
 let names = []
 let developers = []
 let publishers = []
 let criticscores = []
 let userscores = []
 let ratings = []
+let gamecount = names.length
 
         //loop through and generate option links from dataset
         console.log(gamedata)
@@ -143,6 +155,9 @@ let ratings = []
             ratings.push(gamedata[index].rating)
             criticscores.push(gamedata[index].criticscore)
             userscores.push(gamedata[index].userscore)
+            totalnasales.push(gamedata[index].nasales)
+            totaleusales.push(gamedata[index].eusales)
+            totaljpsales.push(gamedata[index].jpsales)
 
         }
         
@@ -156,6 +171,9 @@ let ratings = []
         // console.log(userscores)
         // console.log(ratings)
 
+
+
+// Chart 1
         var trace = {
             x: names,
             y: totalglobalsales,
@@ -165,13 +183,48 @@ let ratings = []
         var data = [trace];
         
         var layout = {
-            title: "Global Sales by Genre"
+            title: "Global Sales by Genre"            
              
         }
 
         Plotly.newPlot('plot', data, layout);
 
+// Chart 2
+var tracena = {
+            x: genres,
+            y: totalnasales,
+            type: 'bar',
+            name: 'NA Sales'
 
+        }   
+
+var traceeu = {
+            x: genres,
+            y: totaleusales,
+            type: 'bar',
+            name: 'EU Sales'
+
+        }   
+
+var tracejp = {
+            x: genres,
+            y: totaljpsales,
+            type: 'bar',
+            name: 'JP Sales'
+
+        }   
+        var dataregions = [tracena,traceeu,tracejp];
+
+        
+        var layoutregions = {
+            title: "Regional Sales by Genre"            
+             
+        }
+
+        Plotly.newPlot('plotregions', dataregions, layoutregions);
+
+
+// Chart 3
         var trace2 = {
             x: publishers,
             y: criticscores,
