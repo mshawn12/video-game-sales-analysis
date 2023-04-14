@@ -43,7 +43,7 @@ def videogamescores():
 @app.route("/api/v1.0/completevideogamedata")
 def completevideogamedata():
     conn= engine.connect()
-    query = "SELECT * FROM completevideogamedata"
+    query = "SELECT * FROM completedata"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
@@ -58,7 +58,7 @@ def home():
 def dashboard():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
     conn= engine.connect()
-    query = "SELECT * FROM completevideogamedata"
+    query = "SELECT * FROM completedata"
     df = pd.read_sql(query, conn)
 
     return render_template("dashboard.html",games=df.to_json(orient= "records"))
@@ -67,7 +67,7 @@ def dashboard():
 def actiondashboard():
     data = "http://127.0.0.1:5000/api/v1.0/completedata"
     conn= engine.connect()
-    query = "SELECT * FROM completevideogamedata WHERE genre='Action'"
+    query = "SELECT * FROM completedata WHERE genre='Action'"
     df = pd.read_sql(query, conn)
 
     return render_template("actiondashboard.html",games=df.to_json(orient= "records"))
@@ -76,7 +76,7 @@ def actiondashboard():
 @app.route("/api/v1.0/actiondashboard")
 def actiondashboardapi():
     conn= engine.connect()
-    query = "SELECT * FROM completevideogamedata WHERE genre='Action'"
+    query = "SELECT * FROM completedata WHERE genre='Action'"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
