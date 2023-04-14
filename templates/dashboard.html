@@ -48,6 +48,9 @@
   </div>
 
   <div id="plot"></div>
+  <div id="plot2"></div>
+  <div id="plot3"></div>
+  <div id="bubble"></div>
  <script>
     // var data = {{games|tojson|safe}};
     // var data = {{games}}
@@ -110,16 +113,36 @@
         let salesdata = data;
 let genres = []
 let totalglobalsales = []
+let names = []
+let developers = []
+let publishers = []
+let criticscores = []
+let userscores = []
+let ratings = []
+
         //loop through and generate option links from dataset
         console.log(salesdata)
         for(let index = 0; index < salesdata.length; index++){
             totalglobalsales.push(salesdata[index].globalsales)
             genres.push(salesdata[index].genre)
+            names.push(salesdata[index].name)
+            developers.push(salesdata[index].developer)
+            publishers.push(salesdata[index].publisher)
+            ratings.push(salesdata[index].rating)
+            criticscores.push(salesdata[index].criticscore)
+            userscores.push(salesdata[index].userscore)
+
         }
         
        
         console.log(totalglobalsales)
         console.log(genres)
+        console.log(names)
+        console.log(developers)
+        console.log(publishers)
+        console.log(criticscores)
+        console.log(userscores)
+        console.log(ratings)
 
         var trace = {
             x: genres,
@@ -134,9 +157,49 @@ let totalglobalsales = []
              
         }
 
-        Plotly.newPlot('plot', data, layout)
-    })
+        Plotly.newPlot('plot', data, layout);
 
+
+        var trace2 = {
+            x: genres,
+            y: criticscores,
+            type: 'bar'
+
+        }   
+        var data2 = [trace2];
+        
+        var layout2 = {
+            title: "test"
+             
+        }
+
+        Plotly.newPlot('plot2', data2, layout2)
+
+        var trace3 = {
+            x: genres,
+            y: userscores,
+            type: 'bar'
+
+        }   
+        var data3 = [trace3];
+        
+        var layout3 = {
+            title: "test"
+             
+        }
+
+        Plotly.newPlot('plot3', data3, layout3)
+        
+    });
+
+</script>
+
+<div id="bubble"></div>
+
+<script>
+
+ 
+ 
 </script>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>

@@ -1,10 +1,10 @@
 
 // Create chart generator function
-function generateCharts(sample){
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) => {
-        let salesdata = data;
-        for(let index = 0; index < salesdata.length; index++){
-            console.log(salesdata[index].globalsales)
+// function generateCharts(sample){
+//     d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) => {
+//         let salesdata = data;
+//         for(let index = 0; index < salesdata.length; index++){
+//             console.log(salesdata[index].globalsales)
         // let resultsArray = genres.filter((genreDictionary) => genreDictionary.uniqueid == sample);
         // let result = resultsArray[0];
 
@@ -69,62 +69,62 @@ function generateCharts(sample){
 //     });
 // }
 
-// Create metadata function
-function generateMetadata(sample){
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) => {
-        let metadata = data.genre;
+// // Create metadata function
+// function generateMetadata(sample){
+//     d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) => {
+//         let metadata = data.genre;
 
-        let resultsArray = metadata.filter(sampleDictionary => sampleDictionary.id == sample);
+//         let resultsArray = metadata.filter(sampleDictionary => sampleDictionary.id == sample);
 
-        let result = resultsArray[0];
+//         let result = resultsArray[0];
 
-        let PANEL = d3.select("#sample-metadata");
+//         let PANEL = d3.select("#sample-metadata");
 
-        // clear results
-        PANEL.html("");
+//         // clear results
+//         PANEL.html("");
 
-        for(key in result) {
-            PANEL.append("h6").text(`${key.toUpperCase()}: ${result[key]}`)
-        }
+//         for(key in result) {
+//             PANEL.append("h6").text(`${key.toUpperCase()}: ${result[key]}`)
+//         }
 
 
-//         // Generate Gauge chart -- via bonus.js
-//         generateGauge(result.wfreq);
+// //         // Generate Gauge chart -- via bonus.js
+// //         generateGauge(result.wfreq);
 
-    })
+//     })
 
-}
+// }
 
 
 // Create initialize function
-function init(){
-    let selector = d3.select("#selDataset");
+// function init(){
+//     let selector = d3.select("#selDataset");
 
 
     // call API
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
-        // console.log(data.names);
-        let sampleGenres = data.genre;
+//     d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
+//         // console.log(data.names);
+//         let sampleGenres = data.genre;
 
-        // loop through and generate option links from dataset
-        for(let index = 0; index < sampleGenres.length; index++){
-            selector.append("option").text(sampleGenres[index]).property("value", sampleGenres[index]);
+//         // loop through and generate option links from dataset
+//         for(let index = 0; index < sampleGenres.length; index++){
+//             selector.append("option").text(sampleGenres[index]).property("value", sampleGenres[index]);
             
-        }
-        let sampleOne = sampleNames[0];
-        generateCharts(sampleOne);
-        generateMetadata(sampleOne);
+//         }
+//         let sampleOne = sampleNames[0];
+//         generateCharts(sampleOne);
+//         generateMetadata(sampleOne);
 
-    })
+//     })
 
-}
+// }
 
 // Create function to change options / data via dropdown
 
-function optionChanged(newSample){
-    generateCharts(newSample);
-    generateMetadata(newSample);
-}
+// function optionChanged(newSample){
+//     generateCharts(newSample);
+//     generateMetadata(newSample);
+// }
 
 
 // Call intialize function
