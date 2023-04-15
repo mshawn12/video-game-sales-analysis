@@ -2027,7 +2027,8 @@ Footer Style
 */
 
 footer {
-  background-image: url(../images/footer-bg.jpg);
+  /* background-image: url(../images/footer-bg.jpg); */
+  background-image: url("https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
