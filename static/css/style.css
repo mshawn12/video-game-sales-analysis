@@ -953,8 +953,8 @@ preloader
     border-radius: 50%;
     -webkit-transform: translateX(0);
     transform: translateX(0);
-    -webkit-animation: dot 2.8s infinite;
-    animation: dot 2.8s infinite;
+    -webkit-animation: dot 3.8s infinite;
+    animation: dot 3.8s infinite;
 }
 
 .preloader-inner .dots {
@@ -962,8 +962,8 @@ preloader
     transform: translateX(0);
     margin-top: 12px;
     margin-left: 31px;
-    -webkit-animation: dots 2.8s infinite;
-    animation: dots 2.8s infinite;
+    -webkit-animation: dots 3.8s infinite;
+    animation: dots 3.8s infinite;
 }
 
 .preloader-inner .dots span {
@@ -2217,4 +2217,30 @@ responsive
   form#contact {
     padding: 30px;
   }
+
+  .sticker {
+    width: 180px;
+    height: 180px;
+    }
+    
+
+  .example-1 .sticker-img {
+    background-image: url(https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard-banner.png?raw=true);
+    }
+    
+
+    
+.example-2 .sticker-img {
+    background-color: #ff4a85;
+    
+    }
+    
+
+.example-2 .sticker-shadow {
+    opacity: 0.6;
+    
+    }
+
+
+
 }

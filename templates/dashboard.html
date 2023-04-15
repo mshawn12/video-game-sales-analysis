@@ -24,7 +24,7 @@
 
 <body>
   <!-- ***** Preloader Start ***** -->
-  <!-- <div id="js-preloader" class="js-preloader">
+  <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -33,7 +33,7 @@
         <span></span>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- ***** Preloader End ***** -->
 
@@ -574,6 +574,29 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- <script src="/static/js/app.js"></script> -->
 
+
+<!-- Preloader Javascript -->
+<script>        
+    // var delay = 10;
+    // setTimeout("loadExtraFiles();", delay * 1000);
+    window.addEventListener('load', () => {
+        const preload = document.querySelector('js-preloader');
+        setTimeout( function() {
+            preload.classList.add('preload-finish');
+        }, 1000000 );
+});
+
+    </script>
+    
+<script>
+    var loader = document.getElementById("js-preloader");
+    window.addEventListener("load",function(){
+        loader.style.display = "none";
+
+
+    })
+
+</script>
 </body>
 
 </html>

@@ -25,7 +25,7 @@
 
 <body>
   <!-- ***** Preloader Start ***** -->
-  <!-- <div id="js-preloader" class="js-preloader">
+  <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -34,7 +34,7 @@
         <span></span>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- ***** Preloader End ***** -->
 
@@ -76,7 +76,7 @@
 
 
 <!-- Content Start -->
-
+<!-- <div class="sticker example-1"></div> -->
 
   <div class="container">
     <div class="row">
@@ -100,10 +100,35 @@
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true">
 </footer>
 
+<!-- Preloader -->
+<!-- // Page loading animation -->
+<script>
+$(window).on('load', function() {
+
+   $('#js-preloader').addClass('loaded');
+
+});
+</script>
+
   <!-- Scripts -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   <!-- <script src="/static/js/app.js"></script> -->
+
+
+<!-- Preloader Javascript -->
+<script>
+    var loader = document.getElementById("js-preloader");
+    window.addEventListener("load",function(){
+        loader.style.display = "none";
+
+        var delay = 5;
+        setTimeout("loadExtraFiles();", delay * 1000);
+    })
+
+</script>
+
 
 </body>
 
