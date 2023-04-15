@@ -124,7 +124,7 @@
 
 
 <!-- Chart setup -->
- 
+ <div id="genremetadata"></div>
   <table>
     <tr>
     <td>
@@ -513,6 +513,38 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
 </script>
 
+<!-- Genre SALES Data -->
+<!-- /api/v1.0/gamesales -->
+
+<script>
+        d3.json("/api/v1.0/gamesales").then((salesdata) =>{
+        let topsalesname = salesdata[0].name;
+        // let topsalespublisher = salesdata[0].publisher;
+        // let topsalesdeveloper = salesdata[0].developer;  
+
+        d3.json("/api/v1.0/publishersales").then((salesdatapublisher) =>{
+        let topsalespublisher = salesdatapublisher[0].publisher;
+        
+        d3.json("/api/v1.0/developersales").then((salesdatadeveloper) =>{
+        let topsalesdeveloper = salesdatadeveloper[0].developer;
+        
+        d3.json("/api/v1.0/sumglobalsales").then((sumglobalsale) =>{
+        let sumglobalsales = sumglobalsale[0].sum;
+        
+        // console.log(topsales);
+
+        let PANEL = d3.select("#genremetadata");
+
+        PANEL.html(`<u>Global Sales Overview</u> > <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
+        <strong>Top Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
+        &nbsp; <strong>Top Developer</strong>: ${topsalesdeveloper}`);
+
+      
+    })
+})
+})
+    });
+</script>
 
 <footer>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true">
