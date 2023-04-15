@@ -151,6 +151,31 @@ def adventuredashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+
+# Average Critic Score for Genres - Adventure
+@app.route("/api/v1.0/avggamecriticscoreadventure")
+def avggamecriticscoreadventure():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Adventure'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Adventure
+@app.route("/api/v1.0/avggameuserscoreadventure")
+def avggameuserscoreadventure():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Adventure'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
+
+
+
+
 # Puzzle Dashboard
 @app.route("/puzzledashboard")
 def puzzledashboard():
@@ -169,6 +194,29 @@ def puzzledashboardapi():
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
+
+
+# Average Critic Score for Genres - Puzzle
+@app.route("/api/v1.0/avggamecriticscorepuzzle")
+def avggamecriticscorepuzzle():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Puzzle'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Puzzle
+@app.route("/api/v1.0/avggameuserscorepuzzle")
+def avggameuserscorepuzzle():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Puzzle'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 
 # Strategy Dashboard
 @app.route("/strategydashboard")
@@ -189,6 +237,28 @@ def strategydashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+
+# Average Critic Score for Genres - Strategy
+@app.route("/api/v1.0/avggamecriticscorestrategy")
+def avggamecriticscorestrategy():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Strategy'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Strategy
+@app.route("/api/v1.0/avggameuserscorestrategy")
+def avggameuserscorestrategy():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Strategy'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 # Role-Playing Dashboard
 @app.route("/roleplayingdashboard")
 def roleplayingdashboard():
@@ -207,6 +277,27 @@ def roleplayingdashboardapi():
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
+
+# Average Critic Score for Genres - Role Playing
+@app.route("/api/v1.0/avggamecriticscoreroleplaying")
+def avggamecriticscoreroleplaying():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Role-Playing'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Role Playing
+@app.route("/api/v1.0/avggameuserscoreroleplaying")
+def avggameuserscoreroleplaying():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Role-Playing'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
 
 # Simulation Dashboard
 @app.route("/simulationdashboard")
@@ -227,6 +318,28 @@ def simulationdashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+
+# Average Critic Score for Genres - Simulation
+@app.route("/api/v1.0/avggamecriticscoresimulation")
+def avggamecriticscoresimulation():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Simulation'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Simulation
+@app.route("/api/v1.0/avggameuserscoresimulation")
+def avggameuserscoresimulation():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Simulation'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 # Misc Dashboard
 @app.route("/miscdashboard")
 def miscdashboard():
@@ -245,6 +358,26 @@ def miscdashboardapi():
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
+
+# Average Critic Score for Genres - Misc
+@app.route("/api/v1.0/avggamecriticscoremisc")
+def avggamecriticscoremisc():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Misc'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Misc
+@app.route("/api/v1.0/avggameuserscoremisc")
+def avggameuserscoremisc():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Misc'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
 
 # Fighting Dashboard
 @app.route("/fightingdashboard")
@@ -265,6 +398,25 @@ def fightingdashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+# Average Critic Score for Genres - Fighting
+@app.route("/api/v1.0/avggamecriticscorefighting")
+def avggamecriticscorefighting():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Fighting'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Fighting
+@app.route("/api/v1.0/avggameuserscorefighting")
+def avggameuserscorefighting():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Fighting'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
 # Sports Dashboard
 @app.route("/sportsdashboard")
 def sportsdashboard():
@@ -284,6 +436,25 @@ def sportsdashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+# Average Critic Score for Genres - Sports
+@app.route("/api/v1.0/avggamecriticscoresports")
+def avggamecriticscoresports():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Sports'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Sports
+@app.route("/api/v1.0/avggameuserscoresports")
+def avggameuserscoresports():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Sports'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
 # Racing Dashboard
 @app.route("/racingdashboard")
 def racingdashboard():
@@ -301,6 +472,25 @@ def racingdashboardapi():
     query = "SELECT * FROM completedata WHERE genre='Racing'"
     df = pd.read_sql(query, conn)
     # print(df)
+    return df.to_json(orient= "records")
+
+
+# Average Critic Score for Genres - Racing
+@app.route("/api/v1.0/avggamecriticscoreracing")
+def avggamecriticscoreracing():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Racing'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Racing
+@app.route("/api/v1.0/avggameuserscoreracing")
+def avggameuserscoreracing():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Racing'"
+    df = pd.read_sql(query, conn)
+    print(df)
     return df.to_json(orient= "records")
 
 
@@ -323,6 +513,26 @@ def fpsdashboardapi():
     # print(df)
     return df.to_json(orient= "records")
 
+
+# Average Critic Score for Genres - FPS
+@app.route("/api/v1.0/avggamecriticscorefps")
+def avggamecriticscorefps():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Shooter'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - FPS
+@app.route("/api/v1.0/avggameuserscorefps")
+def avggameuserscorefps():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Shooter'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+
 # Platform Dashboard
 @app.route("/platformdashboard")
 def platformdashboard():
@@ -340,6 +550,25 @@ def platformdashboardapi():
     query = "SELECT * FROM completedata WHERE genre='Platform'"
     df = pd.read_sql(query, conn)
     # print(df)
+    return df.to_json(orient= "records")
+
+
+# Average Critic Score for Genres - Platform
+@app.route("/api/v1.0/avggamecriticscoreplatform")
+def avggamecriticscoreplatform():
+    conn = engine.connect()
+    query = "SELECT AVG(criticscore) FROM completedata WHERE genre='Platform'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
+# Average User Score for Genres - Platform
+@app.route("/api/v1.0/avggameuserscoreplatform")
+def avggameuserscoreplatform():
+    conn = engine.connect()
+    query = "SELECT AVG(userscore) FROM completedata WHERE genre='Platform'"
+    df = pd.read_sql(query, conn)
+    print(df)
     return df.to_json(orient= "records")
 
 
