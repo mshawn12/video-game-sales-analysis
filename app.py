@@ -11,7 +11,7 @@ import json
 import plotly.graph_objects as go
 
 # Import credentials
-from config import username, password, hostname, port, db
+from config import username, password, hostname, port, db, mapboxtoken
 
 # Create Flask
 app = Flask(__name__)
@@ -43,7 +43,7 @@ def videogamescores():
 @app.route("/api/v1.0/completevideogamedata")
 def completevideogamedata():
     conn= engine.connect()
-    query = "SELECT * FROM completedata"
+    query = "SELECT * FROM completedata ORDER BY criticscore DESC"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
@@ -1130,7 +1130,14 @@ def avggenressales():
 
 
 
-
+# Total North America Sales
+@app.route("/api/v1.0/totalsales")
+def totalsales():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 

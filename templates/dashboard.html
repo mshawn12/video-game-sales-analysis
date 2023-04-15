@@ -153,6 +153,8 @@
 
 
   <div id="plotmap"></div>
+  <br/>
+  <div id="map"></div>
 
  <!-- <script> -->
     <!-- // var data = {{games|tojson|safe}};
@@ -318,7 +320,13 @@ var traceuser = {
 
         
         var layoutscores = {
-            title: "Critic Score (Out of 100) | User Score (Out of 10)"            
+            title: "Critic Score (Out of 100) | User Score (Out of 10)"
+            // yaxis: {
+            //     categoryorder:'total ascending'}
+            // yaxis: {
+            //     // range:[0,100]
+            //     labelalias: ('100k':'100')
+            // }            
              
         }
 
@@ -392,6 +400,8 @@ var tracejp = {
         
         var layout2 = {
             title: "Critic Score by Publisher"
+            // yaxis: {
+            //     categoryorder:'total ascending'}
              
         }
 
@@ -545,6 +555,7 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 })
     });
 </script>
+
 
 <footer>
 <!-- <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true"> -->
