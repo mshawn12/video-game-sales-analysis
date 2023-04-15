@@ -129,6 +129,50 @@ def avggameuserscoreaction():
     return df.to_json(orient= "records")
 
 
+# Total Sales by Game - All Genres - Action
+@app.route("/api/v1.0/gamesalesaction")
+def gamesalesaction():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Action' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+
+# Global Sales by Publisher - Action
+@app.route("/api/v1.0/publishersalesaction")
+def publishersalesaction():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Action' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+
+# Global Sales by Developer - Action 
+@app.route("/api/v1.0/developersalesaction")
+def developersalesaction():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Action' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Action
+@app.route("/api/v1.0/sumglobalsalesaction")
+def sumglobalsalesaction():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Action' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
+
+
 
 
 
@@ -169,6 +213,44 @@ def avggameuserscoreadventure():
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
+
+# Total Sales by Game - All Genres - Adventure
+@app.route("/api/v1.0/gamesalesadventure")
+def gamesalesadventure():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Adventure' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Adventure
+@app.route("/api/v1.0/publishersalesadventure")
+def publishersalesadventure():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Adventure' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Adventure 
+@app.route("/api/v1.0/developersalesadventure")
+def developersalesadventure():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Adventure' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Adventure
+@app.route("/api/v1.0/sumglobalsalesadventure")
+def sumglobalsalesadventure():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Adventure' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
 
 
 
@@ -214,6 +296,44 @@ def avggameuserscorepuzzle():
     print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Game - All Genres - Puzzle
+@app.route("/api/v1.0/gamesalespuzzle")
+def gamesalespuzzle():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Puzzle' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Puzzle
+@app.route("/api/v1.0/publishersalespuzzle")
+def publishersalespuzzle():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Puzzle' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Puzzle 
+@app.route("/api/v1.0/developersalespuzzle")
+def developersalespuzzle():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Puzzle' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Puzzle
+@app.route("/api/v1.0/sumglobalsalespuzzle")
+def sumglobalsalespuzzle():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Puzzle' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
 
 
 
@@ -257,6 +377,48 @@ def avggameuserscorestrategy():
     return df.to_json(orient= "records")
 
 
+# Total Sales by Game - All Genres - Strategy
+@app.route("/api/v1.0/gamesalesstrategy")
+def gamesalesstrategy():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Strategy' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Strategy
+@app.route("/api/v1.0/publishersalesstrategy")
+def publishersalesstrategy():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Strategy' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Strategy 
+@app.route("/api/v1.0/developersalesstrategy")
+def developersalesstrategy():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Strategy' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Strategy
+@app.route("/api/v1.0/sumglobalsalesstrategy")
+def sumglobalsalesstrategy():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Strategy' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
+
+
 
 
 # Role-Playing Dashboard
@@ -295,6 +457,46 @@ def avggameuserscoreroleplaying():
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
+
+# Total Sales by Game - All Genres - Role-Playing
+@app.route("/api/v1.0/gamesalesroleplaying")
+def gamesalesroleplaying():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Role-Playing' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Role-Playing
+@app.route("/api/v1.0/publishersalesroleplaying")
+def publishersalesroleplaying():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Role-Playing' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Role-Playing 
+@app.route("/api/v1.0/developersalesroleplaying")
+def developersalesroleplaying():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Role-Playing' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Role-Playing
+@app.route("/api/v1.0/sumglobalsalesroleplaying")
+def sumglobalsalesroleplaying():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Role-Playing' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
 
 
 
@@ -337,6 +539,47 @@ def avggameuserscoresimulation():
     print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Game - All Genres - Simulation
+@app.route("/api/v1.0/gamesalessimulation")
+def gamesalessimulation():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Simulation' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Simulation
+@app.route("/api/v1.0/publishersalessimulation")
+def publishersalessimulation():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Simulation' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Simulation 
+@app.route("/api/v1.0/developersalessimulation")
+def developersalessimulation():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Simulation' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Simulation
+@app.route("/api/v1.0/sumglobalsalessimulation")
+def sumglobalsalessimulation():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Simulation' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
+
 
 
 
@@ -378,6 +621,46 @@ def avggameuserscoremisc():
     return df.to_json(orient= "records")
 
 
+# Total Sales by Game - All Genres - Misc
+@app.route("/api/v1.0/gamesalesmisc")
+def gamesalesmisc():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Misc' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Misc
+@app.route("/api/v1.0/publishersalesmisc")
+def publishersalesmisc():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Misc' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Misc 
+@app.route("/api/v1.0/developersalesmisc")
+def developersalesmisc():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Misc' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Misc
+@app.route("/api/v1.0/sumglobalsalesmisc")
+def sumglobalsalesmisc():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Misc' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 
 # Fighting Dashboard
 @app.route("/fightingdashboard")
@@ -416,6 +699,47 @@ def avggameuserscorefighting():
     print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Game - All Genres - Fighting
+@app.route("/api/v1.0/gamesalesfighting")
+def gamesalesfighting():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Fighting' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Fighting
+@app.route("/api/v1.0/publishersalesfighting")
+def publishersalesfighting():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Fighting' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Fighting 
+@app.route("/api/v1.0/developersalesfighting")
+def developersalesfighting():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Fighting' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Fighting
+@app.route("/api/v1.0/sumglobalsalesfighting")
+def sumglobalsalesfighting():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Fighting' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
+
 
 # Sports Dashboard
 @app.route("/sportsdashboard")
@@ -453,6 +777,47 @@ def avggameuserscoresports():
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
+
+# Total Sales by Game - All Genres - Sports
+@app.route("/api/v1.0/gamesalessports")
+def gamesalessports():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Sports' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Sports
+@app.route("/api/v1.0/publishersalessports")
+def publishersalessports():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Sports' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Sports 
+@app.route("/api/v1.0/developersalessports")
+def developersalessports():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Sports' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Sports
+@app.route("/api/v1.0/sumglobalsalessports")
+def sumglobalsalessports():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Sports' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 
 
 # Racing Dashboard
@@ -493,6 +858,46 @@ def avggameuserscoreracing():
     print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Game - All Genres - Racing
+@app.route("/api/v1.0/gamesalesracing")
+def gamesalesracing():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Racing' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Racing
+@app.route("/api/v1.0/publishersalesracing")
+def publishersalesracing():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Racing' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Racing 
+@app.route("/api/v1.0/developersalesracing")
+def developersalesracing():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Racing' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Racing
+@app.route("/api/v1.0/sumglobalsalesracing")
+def sumglobalsalesracing():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Racing' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 
 # FPS Dashboard
 @app.route("/fpsdashboard")
@@ -531,6 +936,47 @@ def avggameuserscorefps():
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
+
+# Total Sales by Game - All Genres - Shooter
+@app.route("/api/v1.0/gamesalesfps")
+def gamesalesfps():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Shooter' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Shooter
+@app.route("/api/v1.0/publishersalesfps")
+def publishersalesfps():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Shooter' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Shooter 
+@app.route("/api/v1.0/developersalesfps")
+def developersalesfps():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Shooter' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Shooter
+@app.route("/api/v1.0/sumglobalsalesfps")
+def sumglobalsalesfps():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Shooter' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 
 
 # Platform Dashboard
@@ -572,6 +1018,46 @@ def avggameuserscoreplatform():
     return df.to_json(orient= "records")
 
 
+# Total Sales by Game - All Genres - Platform
+@app.route("/api/v1.0/gamesalesplatform")
+def gamesalesplatform():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata WHERE genre='Platform' GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+# Global Sales by Publisher - Platform
+@app.route("/api/v1.0/publishersalesplatform")
+def publishersalesplatform():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), publisher FROM completedata WHERE genre='Platform' GROUP BY publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+
+# Global Sales by Developer - Platform 
+@app.route("/api/v1.0/developersalesplatform")
+def developersalesplatform():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), developer FROM completedata WHERE genre='Platform' GROUP BY developer, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records") 
+
+# Sum of Global Sales - Platform
+@app.route("/api/v1.0/sumglobalsalesplatform")
+def sumglobalsalesplatform():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Platform' GROUP BY genre"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
+
+
+
+
 
 # Custom Paths / Queries
 
@@ -591,13 +1077,7 @@ def completedata():
     print(df)
     return df.to_json(orient= "records")
 
-@app.route("/api/v1.0/sumglobalsales")
-def sumglobalsales():
-    conn = engine.connect()
-    query = "SELECT SUM(globalsales) FROM completedata"
-    df = pd.read_sql(query, conn)
-    # print(df)
-    return df.to_json(orient= "records")
+
 
 @app.route("/api/v1.0/genres")
 def genres():
@@ -647,15 +1127,6 @@ def avggenressales():
 #
 #
 # 
-
-# Total Sales by Game - All Genres
-@app.route("/api/v1.0/gamesales")
-def gamesales():
-    conn = engine.connect()
-    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
-    df = pd.read_sql(query, conn)
-    print(df)
-    return df.to_json(orient= "records")      
 
 
 
@@ -724,6 +1195,16 @@ def jpsalesgenre():
 # Sales Data
 
 
+# Total Sales by Game - All Genres
+@app.route("/api/v1.0/gamesales")
+def gamesales():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales), name, developer, publisher, genre FROM completedata GROUP BY name, developer, publisher, genre ORDER BY SUM(globalsales) DESC"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")      
+
+
 # Global Sales by Publisher
 @app.route("/api/v1.0/publishersales")
 def publishersales():
@@ -744,7 +1225,14 @@ def developersales():
     print(df)
     return df.to_json(orient= "records") 
 
-
+# Sum of Global Sales
+@app.route("/api/v1.0/sumglobalsales")
+def sumglobalsales():
+    conn = engine.connect()
+    query = "SELECT SUM(globalsales) FROM completedata"
+    df = pd.read_sql(query, conn)
+    # print(df)
+    return df.to_json(orient= "records")
 
 
 
