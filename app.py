@@ -170,6 +170,15 @@ def sumglobalsalesaction():
 
 
 
+# Total Sales by Region - Action
+@app.route("/api/v1.0/totalsalesaction")
+def totalsalesaction():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Action'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
 
 
 
@@ -251,7 +260,14 @@ def sumglobalsalesadventure():
     # print(df)
     return df.to_json(orient= "records")
 
-
+# Total Sales by Region - Adventure
+@app.route("/api/v1.0/totalsalesadventure")
+def totalsalesadventure():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Adventure'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -333,7 +349,14 @@ def sumglobalsalespuzzle():
     # print(df)
     return df.to_json(orient= "records")
 
-
+# Total Sales by Region - Puzzle
+@app.route("/api/v1.0/totalsalespuzzle")
+def totalsalespuzzle():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Puzzle'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -414,7 +437,14 @@ def sumglobalsalesstrategy():
     # print(df)
     return df.to_json(orient= "records")
 
-
+# Total Sales by Region - Strategy
+@app.route("/api/v1.0/totalsalesstrategy")
+def totalsalesstrategy():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Strategy'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -495,7 +525,14 @@ def sumglobalsalesroleplaying():
     # print(df)
     return df.to_json(orient= "records")
 
-
+# Total Sales by Region - Role-Playing
+@app.route("/api/v1.0/totalsalesroleplaying")
+def totalsalesroleplaying():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Role-Playing'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -576,7 +613,14 @@ def sumglobalsalessimulation():
     # print(df)
     return df.to_json(orient= "records")
 
-
+# Total Sales by Region - Simulation
+@app.route("/api/v1.0/totalsalessimulation")
+def totalsalessimulation():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Simulation'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -658,6 +702,15 @@ def sumglobalsalesmisc():
     # print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Region - Misc
+@app.route("/api/v1.0/totalsalesmisc")
+def totalsalesmisc():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Misc'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
+
 
 
 
@@ -736,6 +789,14 @@ def sumglobalsalesfighting():
     # print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Region - Fighting
+@app.route("/api/v1.0/totalsalesfighting")
+def totalsalesfighting():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Fighting'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -815,6 +876,14 @@ def sumglobalsalessports():
     # print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Region - Sports
+@app.route("/api/v1.0/totalsalessports")
+def totalsalessports():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Sports'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -893,6 +962,15 @@ def sumglobalsalesracing():
     query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Racing' GROUP BY genre"
     df = pd.read_sql(query, conn)
     # print(df)
+    return df.to_json(orient= "records")
+
+# Total Sales by Region - Racing
+@app.route("/api/v1.0/totalsalesracing")
+def totalsalesracing():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Racing'"
+    df = pd.read_sql(query, conn)
+    print(df)
     return df.to_json(orient= "records")
 
 
@@ -974,7 +1052,14 @@ def sumglobalsalesfps():
     # print(df)
     return df.to_json(orient= "records")
 
-
+# Total Sales by Region - FPS
+@app.route("/api/v1.0/totalsalesfps")
+def totalsalesfps():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Shooter'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -1055,6 +1140,14 @@ def sumglobalsalesplatform():
     # print(df)
     return df.to_json(orient= "records")
 
+# Total Sales by Region - Platform
+@app.route("/api/v1.0/totalsalesplatform")
+def totalsalesplatform():
+    conn = engine.connect()
+    query = "SELECT SUM(nasales) AS nasales,SUM(eusales) AS eusales,SUM(jpsales) AS jpsales FROM completedata WHERE genre ='Platform'"
+    df = pd.read_sql(query, conn)
+    print(df)
+    return df.to_json(orient= "records")
 
 
 
@@ -1138,6 +1231,10 @@ def totalsales():
     df = pd.read_sql(query, conn)
     print(df)
     return df.to_json(orient= "records")
+
+
+
+
 
 
 
