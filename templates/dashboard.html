@@ -108,26 +108,25 @@
   </td>
   </tr>
 </table>
-<br/>
 <div id="plotscores"></div>
-<br/>
+<br/><br/>
 <div id="bubble"></div>
-<br/>
+<br/><br/>
   <div id="plotregions"></div>
-  <br/>
+  <br/><br/>
   <center><h4>Sales by Country</h4></center><br/>
   <div id="regions_div"></div>
-  <br/>
+  <br/><br/>
   <div id="plot"></div>
-  <br/>
+  <br/><br/>
   <div id="plot2"></div>
-  <br/>
+  <br/><br/>
   <div id="plot3"></div>
-  <br/>
+  <br/><br/>
   <div id="plot4"></div>
-  <br/>
+  <br/><br/>
   <div id="plotmap"></div>
-  <br/>
+  <br/><br/>
   <div id="map"></div>
 
 
@@ -480,6 +479,8 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
         let sumnasales = data[0].nasales;
         let sumjpsales = data[0].jpsales;
         // console.log(sumnasales);
+
+        // Load Google Charts
       google.charts.load('current', {
         'packages':['geochart'],
       });
@@ -495,6 +496,7 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
         var options = {
             colorAxis: {colors: ['pink','purple']},
             title: "Comparing Country Sales"
+            // legend:'bottomright'
         };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
