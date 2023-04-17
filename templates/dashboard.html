@@ -117,13 +117,16 @@
   <center><h4>Sales by Country</h4></center><br/>
   <div id="regions_div"></div>
   <br/><br/>
+  <div id="top10"></div>
+  <br/><br/>
   <div id="plot"></div>
   <br/><br/>
-  <div id="plot2"></div>
-  <br/><br/>
+  <div id="plot4"></div>
+  <br/><br/><br/>
+  <center><h3>Critic Score Breakout | Developers & Publishers</h3></center><br/>
   <div id="plot3"></div>
   <br/><br/>
-  <div id="plot4"></div>
+  <div id="plot2"></div>
   <br/><br/>
   <div id="plotmap"></div>
   <br/><br/>
@@ -256,7 +259,7 @@ var traceuser = {
         var data = [trace];
         
         var layout = {
-            title: "Global Sales by Game",
+            title: "Global Sales | All Games",
             xaxis: {
                 categoryorder:'array'
             }
@@ -473,7 +476,7 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
         PANEL.html(`<u>Overview</u> > <strong>Total Games</strong>: ${totalgames}  &nbsp; 
         <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
-        <strong>Top Sold Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
+        <strong>Most Sold Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
         &nbsp; <strong>Top Developer</strong>: ${topsalesdeveloper}`);
 
       
@@ -482,6 +485,8 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 })
     });
 </script>
+
+<!-- Map Script -->
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -516,8 +521,44 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
     })
     </script>
 
+<!-- Top 10 Script -->
 
 
+<script>
+let top10games = []
+let top10gamesales= []
+
+    d3.json("/api/v1.0/gamesalestop10").then((salesdatatop10) =>{
+  
+        
+        for(let index = 0; index < salesdatatop10.length; index++){
+            top10gamesales.push(salesdatatop10[index].sum)
+            top10games.push(salesdatatop10[index].name)
+        }
+        
+        
+        
+        var top10trace = {
+            x: top10gamesales,
+            y: top10games,
+            testposition: 'auto',
+            type: 'bar',
+            orientation: 'h'
+
+        }   
+        var top10data = [top10trace];
+        
+        var top10layout = {
+            title: "Global Sales | Top 10 Games",
+            yaxis: {
+                automargin: true
+    }             
+        }
+
+        Plotly.newPlot('top10', top10data, top10layout)
+    });
+
+</script>
 
 
 <footer>
