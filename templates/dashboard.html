@@ -132,7 +132,7 @@
 
 <script>
 
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
+    d3.json("/api/v1.0/completedata").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
 let genres = []
@@ -256,7 +256,13 @@ var traceuser = {
         var data = [trace];
         
         var layout = {
-            title: "Global Sales by Game"            
+            title: "Global Sales by Game",
+            xaxis: {
+                categoryorder:'array'
+            }
+            // categoryorder: 'category ascending',
+            // yaxis: {
+            //     categoryorder:'category ascending'}            
              
         }
 
@@ -339,13 +345,17 @@ var tracejp = {
         var trace4 = {
             x: ratings,
             y: totalglobalsales,
-            type: 'bar'
+            type: 'bar',
+            mode: 'markers'
 
         }   
         var data4 = [trace4];
         
         var layout4 = {
-            title: "Global Sales by Rating"
+            title: "Global Sales by Rating",
+            xaxis: {
+                categoryorder:'array'
+            }
              
         }
 
@@ -461,7 +471,7 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
         let PANEL = d3.select("#genremetadata");
 
-        PANEL.html(`<u>Overview</u> > <strong>Total Games</strong>: ${sumglobalsales}  &nbsp; 
+        PANEL.html(`<u>Overview</u> > <strong>Total Games</strong>: ${totalgames}  &nbsp; 
         <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
         <strong>Top Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
         &nbsp; <strong>Top Developer</strong>: ${topsalesdeveloper}`);
