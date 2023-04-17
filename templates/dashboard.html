@@ -94,33 +94,6 @@
     </strong></div>
     <br/>
     <br/>
-    
-    <!-- <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Select Genre:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Video Game Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div> -->
-      <!-- <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
-      </div>
-    </div>
-  </div> -->
 
 
 <!-- Chart setup -->
@@ -158,68 +131,8 @@
   <div id="map"></div>
 
 
- <!-- <script> -->
-    <!-- // var data = {{games|tojson|safe}};
-    // var data = {{games}}
-    // var data = "http://127.0.0.1:5000/api/v1.0/completedata"
-//     console.log(data);
-//    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((gamedata)=>{
-//     console.log(gamedata)
-//    })
-
-
-//     var trace1 = {
-//     x: data.criticscore,
-//     y: data.globalsales,
-//     mode: 'markers',
-//     marker: {
-//         size: [40, 60, 80, 100]
-//     }
-//     };
-
-//     var data = [trace1];
-
-//     var layout = {
-//     title: 'Marker Size',
-//     showlegend: false,
-//     height: 600,
-//     width: 600
-//     };
-
-//     Plotly.newPlot('plot', data, layout);
-
-//     console.log(data) -->
-
-    <!-- // let selector = d3.select("#selDataset");
-    
-
-    // //call API
-    // d3.json("http://127.0.0.1:5000/api/v1.0/genres").then((data) =>{
-    //     // console.log(data.names);
-    //     let gamedata = data;
-
-    //     //loop through and generate option links from dataset
-    //     for(let index = 0; index < gamedata.length; index++){
-    //         console.log(gamedata[index].genre)
-    //         selector.append("option").text(gamedata[index].genre).property("value", gamedata[index].genre);
-            
-    //     }
-    //     let gameOne = gamedata[0];
-
-        //generateCharts(gameOne);
-        // generateMetadata(sampleOne);
-
-    // })
-     --> 
-
-<!-- </script> -->
-
 <script>
-//     function optionChanged(newGenre){
-//     // generateCharts(newSample);
-//     // generateMetadata(newSample);
-   
-// }
+
     d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
@@ -530,6 +443,8 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
 <script>
         d3.json("/api/v1.0/gamesales").then((salesdata) =>{
+        let totalgames = salesdata.length;
+        console.log(totalgames)
         let topsalesname = salesdata[0].name;
         // let topsalespublisher = salesdata[0].publisher;
         // let topsalesdeveloper = salesdata[0].developer;  
@@ -547,7 +462,8 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
         let PANEL = d3.select("#genremetadata");
 
-        PANEL.html(`<u>Global Sales Overview</u> > <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
+        PANEL.html(`<u>Overview</u> > <strong>Total Games</strong>: ${sumglobalsales}  &nbsp; 
+        <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
         <strong>Top Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
         &nbsp; <strong>Top Developer</strong>: ${topsalesdeveloper}`);
 
