@@ -248,8 +248,17 @@ var traceuser = {
         }
 
         Plotly.newPlot('plotscores', datascores, layoutscores);
+       
+        console.log(names)
+        console.log(totalglobalsales)
 
 // Chart 1
+// var trace = {
+//             x: names.slice(0,10),
+//             y: totalglobalsales.slice(0,10),
+//             type: 'bar'
+
+//         }  
         var trace = {
             x: names,
             y: totalglobalsales,
@@ -474,9 +483,9 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
         let PANEL = d3.select("#genremetadata");
 
-        PANEL.html(`<u>Overview</u> > <strong>Total Games</strong>: ${totalgames}  &nbsp; 
+        PANEL.html(`<u>Sales Overview</u> > <strong>Total Games</strong>: ${totalgames}  &nbsp; 
         <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
-        <strong>Most Sold Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
+        <strong>Top Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
         &nbsp; <strong>Top Developer</strong>: ${topsalesdeveloper}`);
 
       
@@ -539,12 +548,14 @@ let top10gamesales= []
         
         
         var top10trace = {
-            x: top10gamesales,
-            y: top10games,
+            x: top10gamesales.reverse(),
+            y: top10games.reverse(),
             testposition: 'auto',
             marker: {
-                color: ['rgb(142,124,195)','rgba(204,204,254,1)','rgba(204,204,250,1)','rgba(204,204,244,1)','rgba(204,204,240,1)','rgba(204,204,234,1)',
-                'rgba(204,204,230,1)','rgba(204,204,224,1)','rgba(204,204,220,1)','rgba(204,204,214,1)']
+                color: [
+                'rgba(204,204,214,1)','rgba(204,204,220,1)','rgba(204,204,224,1)','rgba(204,204,230,1)',
+                'rgba(204,204,234,1)','rgba(204,204,240,1)','rgba(204,204,244,1)','rgba(204,204,250,1)','rgba(204,204,254,1)',
+                'rgb(142,124,195)']
             },
             type: 'bar',
             orientation: 'h'
