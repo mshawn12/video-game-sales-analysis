@@ -1405,7 +1405,7 @@ def developersales():
 @app.route("/api/v1.0/sumglobalsales")
 def sumglobalsales():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales) FROM completedata"
+    query = "SELECT CAST(SUM(globalsales) AS DECIMAL(10,2)) FROM completedata"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
