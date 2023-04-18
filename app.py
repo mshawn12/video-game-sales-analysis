@@ -40,13 +40,7 @@ def videogamescores():
     df = pd.read_sql(query, conn)
     return df.to_json(orient= "records")
 
-@app.route("/api/v1.0/completevideogamedata")
-def completevideogamedata():
-    conn= engine.connect()
-    query = "SELECT * FROM completedata ORDER BY criticscore DESC"
-    df = pd.read_sql(query, conn)
-    # print(df)
-    return df.to_json(orient= "records")
+
 
 
 
@@ -1247,13 +1241,6 @@ def gamesalestop10platform():
 
 # Custom Paths / Queries
 
-@app.route("/api/v1.0/jsondata")
-def jsondata():
-    conn = engine.connect()
-    query = "SELECT * FROM jsondata"
-    df = pd.read_sql(query, conn)
-    pprint(df)
-    return df.to_json(orient="records")
 
 @app.route("/api/v1.0/completedata")
 def completedata():
@@ -1273,24 +1260,7 @@ def genres():
     # print(df)
     return df.to_json(orient= "records")
 
-# @app.route("/api/v1.0/json3")
-# def json3():
-#     conn = engine.connect()
-#     query = "SELECT json_agg(completedata) FROM completedata"
-#     df = pd.read_sql(query, conn)
-#     print(df)
-#     return df.to_json(orient= "records")
 
-# @app.route("/api/v1.0/json4")
-# def json4():
-#     conn = engine.connect()
-#     query = "SELECT * FROM completedata"
-#     df = pd.read_sql(query, conn)
-#     # print(df)
-#     return df.to_json(orient= "records")
-#     # print(df)
-#     # myjson = json.dumps(df)
-#     # print("\nJSON format = ",myJSON);
 
 # Total Global Sales by Genre
 @app.route("/api/v1.0/genressales")
