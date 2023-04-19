@@ -11,7 +11,7 @@ import json
 import plotly.graph_objects as go
 
 # Import credentials
-from config import username, password, hostname, port, db, mapboxtoken
+from config import username, password, hostname, port, db
 
 # Create Flask
 app = Flask(__name__)

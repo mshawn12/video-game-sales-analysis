@@ -138,18 +138,20 @@
     d3.json("/api/v1.0/completedata").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
-let genres = []
-let totalglobalsales = []
-let totalnasales = []
-let totaleusales = []
-let totaljpsales = []
-let names = []
-let developers = []
-let publishers = []
-let criticscores = []
-let userscores = []
-let ratings = []
-let gamecount = names.length
+        
+        // Create empty lists
+        let genres = []
+        let totalglobalsales = []
+        let totalnasales = []
+        let totaleusales = []
+        let totaljpsales = []
+        let names = []
+        let developers = []
+        let publishers = []
+        let criticscores = []
+        let userscores = []
+        let ratings = []
+        let gamecount = names.length
 
         //loop through and generate option links from dataset
         // console.log(gamedata)
