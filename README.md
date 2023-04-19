@@ -1,5 +1,5 @@
-# video-game-sales-analysis
-Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
+# Video Game Analysis
+Overview: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 
 ## Background Information
@@ -64,7 +64,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 
 
 - Step 12: We then created a PANEL variable that leveraged the d3.select function to select the div where we would enter text-based data for each genre. This includes Total Games, Total Sales, Top Game, Top Publisher, and Top Developer, each of which has their own SQL queries and APIs in order to pull the top performer for each genre and category
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/panel_html.png?raw=true"alt="PANEL.html function">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/panel_html.png?raw=true" alt="PANEL.html function">
 
 
 
@@ -74,6 +74,8 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 
 - Step 14: After tinkering with the design to meet our standards, the primary dashboard.html file was then duplicated and filtered for each genre, and then linked in the sub-navigation
 
+- Final Screenshots
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview">
 
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
