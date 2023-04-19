@@ -76,6 +76,22 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 
 - Final Screenshots
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/bar_bubble_charts.png?raw=true" alt ="Bar graph & Bubble Chart">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/bar_geo.png?raw=true" alt="Bar graph & geo chart">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/top_10_all_games.png?raw=true" alt="Top 10 and all games - bar charts">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/ratings_criticscores.png?raw=true" alt="Ratings and Critic Scores">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/criticscores_footer.png?raw=true" alt="Critic Scores & Footer">
+
+
+- Other Site Areas
+About Page
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/homepage.png?raw=true" alt="About page">
+
+Resources Page
+<img src="" alt="Resources page">
+
+About Us Page
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
 
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
