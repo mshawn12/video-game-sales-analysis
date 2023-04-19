@@ -47,7 +47,7 @@ def videogamescores():
 # Test Route
 @app.route("/test")
 def test():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     name = "test"
     return render_template("test.html", games=data,name=name)
 
@@ -59,13 +59,13 @@ def test():
 
 @app.route("/home")
 def home():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     name = "Home"
     return render_template("index.html", games=data,name=name)
 
 @app.route("/")
 def dashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata"
     df = pd.read_sql(query, conn)
@@ -87,7 +87,7 @@ def resources():
 # Action Dashboard
 @app.route("/actiondashboard")
 def actiondashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Action'"
     df = pd.read_sql(query, conn)
@@ -189,7 +189,7 @@ def gamesalestop10action():
 # Adventure Dashboard
 @app.route("/adventuredashboard")
 def adventuredashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Adventure'"
     df = pd.read_sql(query, conn)
@@ -285,7 +285,7 @@ def gamesalestop10adventure():
 # Puzzle Dashboard
 @app.route("/puzzledashboard")
 def puzzledashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Puzzle'"
     df = pd.read_sql(query, conn)
@@ -352,7 +352,7 @@ def developersalespuzzle():
 @app.route("/api/v1.0/sumglobalsalespuzzle")
 def sumglobalsalespuzzle():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Puzzle' GROUP BY genre"
+    query = "SELECT CAST(SUM(globalsales) AS DECIMAL(10,2)), genre FROM completedata WHERE genre='Puzzle' GROUP BY genre"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
@@ -380,7 +380,7 @@ def gamesalestop10puzzle():
 # Strategy Dashboard
 @app.route("/strategydashboard")
 def strategydashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Strategy'"
     df = pd.read_sql(query, conn)
@@ -477,7 +477,7 @@ def gamesalestop10strategy():
 # Role-Playing Dashboard
 @app.route("/roleplayingdashboard")
 def roleplayingdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Role-Playing'"
     df = pd.read_sql(query, conn)
@@ -571,7 +571,7 @@ def gamesalestop10roleplaying():
 # Simulation Dashboard
 @app.route("/simulationdashboard")
 def simulationdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Simulation'"
     df = pd.read_sql(query, conn)
@@ -669,7 +669,7 @@ def gamesalestop10simulation():
 # Misc Dashboard
 @app.route("/miscdashboard")
 def miscdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Misc'"
     df = pd.read_sql(query, conn)
@@ -766,7 +766,7 @@ def gamesalestop10misc():
 # Fighting Dashboard
 @app.route("/fightingdashboard")
 def fightingdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Fighting'"
     df = pd.read_sql(query, conn)
@@ -832,7 +832,7 @@ def developersalesfighting():
 @app.route("/api/v1.0/sumglobalsalesfighting")
 def sumglobalsalesfighting():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Fighting' GROUP BY genre"
+    query = "SELECT CAST(SUM(globalsales) AS DECIMAL(10,2)), genre FROM completedata WHERE genre='Fighting' GROUP BY genre"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
@@ -860,7 +860,7 @@ def gamesalestop10fighting():
 # Sports Dashboard
 @app.route("/sportsdashboard")
 def sportsdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Sports'"
     df = pd.read_sql(query, conn)
@@ -954,7 +954,7 @@ def gamesalestop10sports():
 # Racing Dashboard
 @app.route("/racingdashboard")
 def racingdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Racing'"
     df = pd.read_sql(query, conn)
@@ -1049,7 +1049,7 @@ def gamesalestop10racing():
 # FPS Dashboard
 @app.route("/fpsdashboard")
 def fpsdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Shooter'"
     df = pd.read_sql(query, conn)
@@ -1145,7 +1145,7 @@ def gamesalestop10fps():
 # Platform Dashboard
 @app.route("/platformdashboard")
 def platformdashboard():
-    data = "http://127.0.0.1:5000/api/v1.0/completedata"
+    data = "/api/v1.0/completedata"
     conn= engine.connect()
     query = "SELECT * FROM completedata WHERE genre='Platform'"
     df = pd.read_sql(query, conn)
@@ -1213,7 +1213,7 @@ def developersalesplatform():
 @app.route("/api/v1.0/sumglobalsalesplatform")
 def sumglobalsalesplatform():
     conn = engine.connect()
-    query = "SELECT SUM(globalsales), genre FROM completedata WHERE genre='Platform' GROUP BY genre"
+    query = "SELECT CAST(SUM(globalsales) AS DECIMAL(10,2)), genre FROM completedata WHERE genre='Platform' GROUP BY genre"
     df = pd.read_sql(query, conn)
     # print(df)
     return df.to_json(orient= "records")
@@ -1475,7 +1475,7 @@ def genreusercriticscore():
 
 @app.route("/api/v1.0/testdata")
 def testdata():
-    json_data = pd.read_json("http://127.0.0.1:5000/api/v1.0/completedata")
+    json_data = pd.read_json("/api/v1.0/completedata")
     return json_data.to_json(orient= "records")
     # fig = go.Figure(data=[go.Table(
     #     header=dict(values=list(json_data.columns),
