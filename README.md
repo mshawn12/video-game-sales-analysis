@@ -74,7 +74,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 
 - Step 14: After tinkering with the design to meet our standards, the primary dashboard.html file was then duplicated and filtered for each genre, and then linked in the sub-navigation
 
-- Final Screenshots
+### Final Dashboard Screenshots
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview">
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/bar_bubble_charts.png?raw=true" alt ="Bar graph & Bubble Chart">
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/bar_geo.png?raw=true" alt="Bar graph & geo chart">
@@ -83,12 +83,12 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/criticscores_footer.png?raw=true" alt="Critic Scores & Footer">
 
 
-- Other Site Areas
+### Other Site Areas
 About Page
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/homepage.png?raw=true" alt="About page">
 
 Resources Page
-<img src="" alt="Resources page">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/resources_page.png?raw=true" alt="Resources page">
 
 About Us Page
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
