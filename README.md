@@ -23,7 +23,8 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/postgres_sql_steps.png?raw=true" alt="SQL steps">
 
 - SQL Queries
-    - CREATE TABLE video_game_info (
+```
+    CREATE TABLE video_game_info (
         uniqueid INT,
         name VARCHAR,
         yearreleased INT,
@@ -81,7 +82,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
         ON vgs.uniqueid = vgi.uniqueid
         JOIN video_game_scores AS vgsc
         ON vgsc.uniqueid= vgi.uniqueid
-
+```
 <br/>
 
 - <strong><i>Step 4</i></strong>: Once our database was created, we developed a barebone HTML file with corresponding CSS & Javascript to test if our data was being pulled properly. In order to connect our files to the database, we first imported the create_engine function from sqlalchemy as well as a number of other dependencies. In addition, we created a config.py file to store our individual database credentials, stored them / imported them as variables, and used them in our create_engine function f string.
