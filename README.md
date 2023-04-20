@@ -107,7 +107,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/top_10_all_games.png?raw=true" alt="Top 10 and all games - bar charts">
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/ratings_criticscores.png?raw=true" alt="Ratings and Critic Scores">
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/criticscores_footer.png?raw=true" alt="Critic Scores & Footer">
-<br/><br/>
+<br/>
 
 ### Other Site Areas
 <strong><i>About Page</i></strong>
@@ -120,7 +120,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
 
 ## Presentation
-View presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
+- View presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
 
 
 -------------------------
