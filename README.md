@@ -23,7 +23,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/postgres_sql_steps.png?raw=true" alt="SQL steps">
 
 - SQL Queries
-```
+```sql
     CREATE TABLE video_game_info (
         uniqueid INT,
         name VARCHAR,
@@ -79,7 +79,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 ```
 <br/>
 
-- <strong><i>Step 4</i></strong>: Once our database was created, we developed a barebone HTML file with corresponding CSS & Javascript to test if our data was being pulled properly. In order to connect our files to the database, we first imported the create_engine function from sqlalchemy as well as a number of other dependencies. In addition, we created a config.py file to store our individual database credentials, stored them / imported them as variables, and used them in our create_engine function f string.
+- <strong><i>Step 4</i></strong>: Once our database was created, we developed a barebone HTML file with corresponding CSS,Javascript, and Python file to test if our data was being pulled properly. In order to connect our files to the database, we first imported the create_engine function from sqlalchemy as well as a number of other dependencies. In addition, we created a config.py file to store our individual database credentials, imported them as variables, and used them in our create_engine function f string.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/app_py_file.png?raw=true" alt="Preview of app.py file"><br/>
 <br/>
 
@@ -93,7 +93,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
     - What publishers are the most successful in each genre?
     - What publishers generate the most revenue?
     - Are certain genres more popular in certain countries?
-    - Do certain genres generate more revenue?
+    - Do certain genres on average generate more revenue?
     - What are the most popular games in each genre (based on sales or user/critic review)?
     - What years had the most sales?
     - What years had the most popular games (based on user/critic review)?
@@ -107,17 +107,17 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <br/>
 
 
-- <strong><i>Step 8</i></strong>: We then created a series of d3.json functions that pulled the data for the corresponding charts. Using loops, lists, and variables, we were able to pull, store, and reference the desired metrics. Due to roadblocks with our data format and visualization decisions made earlier in the project, Javascipt code needed to be added to each HTML page directly, rather than being called from a separate js file. Although we hope to fix as a future enhancement, this was the path of least resistance at the time of writing this README.md
+- <strong><i>Step 8</i></strong>: We then created a series of additional app routes, SQL queries, and d3.json functions that pulled the data for the corresponding charts. Using loops, lists, and variables, we were able to pull, store, and reference the desired metrics. Due to roadblocks with our data format and visualization decisions made earlier in the project, Javascipt code needed to be added to each HTML page directly, rather than being called from a separate js file. Although we hope to fix as a future enhancement, this was the path of least resistance at the time of writing this README.md
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/d3_json_completedata_function.png?raw=true" alt="Snapshot of d3.json function"><br/>
 <br/>
 
 - <strong><i>Step 9</i></strong>: We then used <a href="https://plotly.com/javascript/">Plotly</a> to create a variety of visualizations, including bar charts, bubble charts, and gauge charts. The color schemes of each of these visualizations were adjusted to match the designs initially set out in our bare bone HTML files.<br/>
 <br/>
 
-- <strong><i>Step 10</i></strong>: Rinse and repeat of Steps 8 & 9 in order to generate the functions and charts that we agreed upon in our mockup <br/>
+- <strong><i>Step 10</i></strong>: Rinse and repeat of Steps 8 & 9 in order to generate the functions and charts that we agreed upon in our mockup as well as have app routes/SQL queries ready for each genre<br/>
 <br/>
 
-- <strong><i>Step 11</i></strong>: Identified an additional Javascript library, Google Charts, to leverage in our visuals per Project Requirements. We chose to use the <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart">GeoChart</a> visualization as it easily integrated with our existing infrastructure and allowed us to adjust the look and feel, which we would later use to match the color scheme of our CSS
+- <strong><i>Step 11</i></strong>: Identified an additional Javascript library, Google Charts, to leverage in our visuals per Project Requirements. We chose to use the <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart">GeoChart</a> visualization as it easily integrated with our existing infrastructure and allowed us to adjust the look and feel, which we would later use to match the color scheme of our CSS and presentation.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/google_geochart.png?raw=true" alt="Google GeoCharts example">
 <i>via Google </i><br/><br/>
 
@@ -143,11 +143,11 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
     - The Action genre comprised of ~23% of all Global Sales
     - Wii Sports, a game belonging to the Sports genre, generated by far the most Global Sales out of any game in the dataset
     - Electronic Arts (EA) is the Publisher with the best overall Critic Score
-    - Games Rated "E" generated the most Global Sales
-        - Games Rated "M" had the second highest Global Sales. It was interesting to see both sides of the spectrum be top performers
+    - Games Rated "E" (Everyone) generated the most Global Sales
+        - Games Rated "M" (Mature) had the second highest Global Sales. It was interesting to see both sides of the spectrum as top performers
     - North America was the biggest market in terms of Sales
     - Sports games made up the majority of sales out of the Top 10 Games in Global Sales
-    - While games in the Puzzle & Strategy genres generated the least Global Sales, they ranked amonst the highest in terms of Critic & User scores
+    - While games in the Puzzle & Strategy genres generated the least Global Sales, they ranked amongst the highest in terms of Critic & User scores
 <br/>
 
 - <strong><i>Step 16</i></strong>: Using the template we selected from <a href="https://pptmon.com/">PPTMON</a>, we then began crafting our presentation. To create a consistent look and feel, these visuals were repurposed throughout all areas of our project deliverables<br/><br/>
