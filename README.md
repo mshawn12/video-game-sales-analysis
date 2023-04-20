@@ -78,7 +78,8 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 
 - Step 15: Once our dashboard was complete, we used the interactive visualizations to begin answering some of the questions we asked at the outset of this project
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/key_findings.png?raw=true" alt="key findings">
-Key findings
+
+ - Key findings
     - The Action genre had more games than any other genre in the dataset
     - Games in the Action genre received the highest overall reviews from both Critics and Users
     - Games in the Action genre generated the most sales in North America & Europe
@@ -97,7 +98,7 @@ Key findings
 
 - Step 16: Using the template we selected from <a href="https://pptmon.com/">PPTMON</a>, we then began crafting our presentation. To create a consistent look and feel, these visuals were repurposed throughout all areas of our project deliverables<br/><br/>
 
-- Step 17: Obstacles faced:
+- Obstacles faced:
     - Our data was not compatible with the templates provided in class. For this reason, the majority of our project needed to be created from scratch
     - Similar to the above, our Javascript could have been executed more efficiently, if our dataset was formatted properly
     - Since our dataset used a combination of regions and countries, it made it difficult to plot data on maps as you can typically only choose one or the other, not both <br/><br/>
