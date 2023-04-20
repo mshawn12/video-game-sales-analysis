@@ -246,11 +246,17 @@ hostname = ""
 port = ""
 db = "videogamesales"
 ```
-5. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
+
+5. Install psycopg2, if necessary
+```bash
+!pip install psycopg2
+```
+
+6. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
 ```
 python app.py
 ```
-6. Copy your development server into your browser and enjoy!
+7. Copy your development server into your browser and enjoy!
 
 -------------------------
 ## Requirements
