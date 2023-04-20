@@ -138,7 +138,7 @@
     d3.json("/api/v1.0/completedata").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
-        
+
         // Create empty lists
         let genres = []
         let totalglobalsales = []
@@ -153,7 +153,7 @@
         let ratings = []
         let gamecount = names.length
 
-        //loop through and generate option links from dataset
+        //loop through dataset to generate lists
         // console.log(gamedata)
         for(let index = 0; index < gamedata.length; index++){
             totalglobalsales.push(gamedata[index].globalsales)
@@ -462,7 +462,6 @@ Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 </script>
 
 <!-- Genre SALES Data -->
-<!-- /api/v1.0/gamesales -->
 
 <script>
         d3.json("/api/v1.0/gamesales").then((salesdata) =>{

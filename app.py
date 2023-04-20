@@ -82,8 +82,6 @@ def resources():
     return render_template("resources.html")
 
 
-
-
 # Action Dashboard
 @app.route("/actiondashboard")
 def actiondashboard():
