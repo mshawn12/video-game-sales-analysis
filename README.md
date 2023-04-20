@@ -1,5 +1,5 @@
 # Video Game Analysis
-<strong><i>Overview</i></strong>: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
+<strong><i>Overview</i></strong>: An interactive dashboard with 13 views powered by a database of over 6,800 rows using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
 <br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 <br/><br/>
