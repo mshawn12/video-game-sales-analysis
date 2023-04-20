@@ -7,7 +7,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 
 
 ## Process
-- Step 1: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
+- <strong>Step 1</strong>: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true" alt="Jupyter Notebook preview"><br/>
 <br/>
 
@@ -93,8 +93,6 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
     - Sports games made up the majority of sales out of the Top 10 Games in Global Sales
     - While games in the Puzzle & Strategy genres generated the least Global Sales, they ranked amonst the highest in terms of Critic & User scores
 <br/>
-<br/>
-
 
 - Step 16: Using the template we selected from <a href="https://pptmon.com/">PPTMON</a>, we then began crafting our presentation. To create a consistent look and feel, these visuals were repurposed throughout all areas of our project deliverables<br/><br/>
 
