@@ -16,7 +16,6 @@
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="/static/css/fontawesome.css">
 
-
   <!-- Group 1 CSS -->
   <link rel="stylesheet" href="/static/css/style.css">
 
@@ -43,26 +42,15 @@
           <div class="row">
             <div class="col-12">
               <nav class="main-nav">
-                <!-- ***** Logo Start ***** -->
-                <!-- <a href="index.html" class="logo"> -->
-                  <!-- <img src="http://127.0.0.1:5000/images/logo-v1.png" alt="">images/logo-v1.png -->
-                </a>
-                <!-- ***** Logo End ***** -->
                 <!-- ***** Menu Start ***** -->
                 <ul class="nav">
                   <li class="scroll-to-section"><a href="/" class="active">Dashboard</a></li>
                   <li class="scroll-to-section"><a href="/home">Home</a></li>
                   <li class="scroll-to-section"><a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Our Dataset</a></li>
                   <li class="scroll-to-section"><a href="/resources">Resources Used</a></li>
-                  <li class="scroll-to-section"><a href="/team">Team Members</a></li>
-                  <!-- <li class="scroll-to-section"><a href="/dashboard">Blog</a></li>
-                  <li class="scroll-to-section"><a href="/dashboard">Contact</a></li> -->
-                   
+                  <li class="scroll-to-section"><a href="/team">Team Members</a></li>  
                   <li class="scroll-to-section"><div class="border-first-button"><a href="https://github.com/mshawn12/video-game-sales-analysis">Github</a></div></li> 
                 </ul>        
-                <!-- <a class='menu-trigger'>
-                    <span>Menu</span>
-                </a> -->
                 <!-- ***** Menu End ***** -->
                 
               </nav>
@@ -200,17 +188,6 @@ var usergaugelayout = {
 };
 Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
 
-// Bubble Map
-// var tracemapna = {
-//     type:'scattergeo',
-//     Ion:[100,400],
-//     lat:[0,0],
-//     marker: {color:['red','blue'],
-//     size: [30,50],
-//     mode:'markers'}}
-
-// Plotly.newPlot('plotmap', [tracemapna]);
-
 
 // Chart scores
 var tracecritic = {
@@ -239,13 +216,7 @@ var traceuser = {
 
         
         var layoutscores = {
-            title: "Critic Score (Out of 100) | User Score (Out of 10)"
-            // yaxis: {
-            //     categoryorder:'total ascending'}
-            // yaxis: {
-            //     // range:[0,100]
-            //     labelalias: ('100k':'100')
-            // }            
+            title: "Critic Score (Out of 100) | User Score (Out of 10)"       
              
         }
 
@@ -254,13 +225,6 @@ var traceuser = {
         console.log(names)
         console.log(totalglobalsales)
 
-// Chart 1
-// var trace = {
-//             x: names.slice(0,10),
-//             y: totalglobalsales.slice(0,10),
-//             type: 'bar'
-
-//         }  
         var trace = {
             x: names,
             y: totalglobalsales,
@@ -273,10 +237,7 @@ var traceuser = {
             title: "Global Sales | All Games",
             xaxis: {
                 categoryorder:'array'
-            }
-            // categoryorder: 'category ascending',
-            // yaxis: {
-            //     categoryorder:'category ascending'}            
+            }      
              
         }
 
@@ -334,8 +295,6 @@ var tracejp = {
         
         var layout2 = {
             title: "Critic Score by Publisher"
-            // yaxis: {
-            //     categoryorder:'total ascending'}
              
         }
 
@@ -594,8 +553,6 @@ let top10gamesales= []
 
 <!-- Preloader Javascript -->
 <script>        
-    // var delay = 10;
-    // setTimeout("loadExtraFiles();", delay * 1000);
     window.addEventListener('load', () => {
         const preload = document.querySelector('js-preloader');
         setTimeout( function() {

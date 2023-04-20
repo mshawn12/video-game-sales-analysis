@@ -60,7 +60,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 
 - Step 11: Identified an additional Javascript library, Google Charts, to leverage in our visuals per Project Requirements. We chose to use the <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart">GeoChart</a> visualization as it easily integrated with our existing infrastructure and allowed us to adjust the look and feel, which we would later use to match the color scheme of our CSS
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/google_geochart.png?raw=true" alt="Google GeoCharts example">
-<i>via Google </i>
+<i>via Google </i><br/><br/>
 
 
 - Step 12: We then created a PANEL variable that leveraged the d3.select function to select the div where we would enter text-based data for each genre. This includes Total Games, Total Sales, Top Game, Top Publisher, and Top Developer, each of which has their own SQL queries and APIs in order to pull the top performer for each genre and category
