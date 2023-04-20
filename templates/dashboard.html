@@ -5,124 +5,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Video Game Analysis</title>
+  <title>All Genres - Video Game Analysis</title>
   <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="/static/css/fontawesome.css">
+
+  <!-- Group 1 CSS -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
 </head>
 
 <body>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Video Game Genre Analysis</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Select Genre:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Video Game Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   </div>
 
+  <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                <!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                  <li class="scroll-to-section"><a href="/" class="active">Dashboard</a></li>
+                  <li class="scroll-to-section"><a href="/home">Home</a></li>
+                  <li class="scroll-to-section"><a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Our Dataset</a></li>
+                  <li class="scroll-to-section"><a href="/resources">Resources Used</a></li>
+                  <li class="scroll-to-section"><a href="/team">Team Members</a></li>  
+                  <li class="scroll-to-section"><div class="border-first-button"><a href="https://github.com/mshawn12/video-game-sales-analysis">Github</a></div></li> 
+                </ul>        
+                <!-- ***** Menu End ***** -->
+                
+              </nav>
+              
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- ***** Header Area End ***** -->
+
+
+<!-- Content Start -->
+
+
+  <div class="container">
+    <div class="row">
+        <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard-banner.png?raw=true" alt="Video Game Banner" width="100%">
+        <br/><br/>
+     <!-- <div class="col-md-12 jumbotron text-center"> -->
+        <div class="genre-title">
+        <center>All Genres</center>
+        </div>
+    <!-- </div> -->
+    </div>
+
+    <div id="navigation"><strong>
+        <button><a href="/" class="button">All Genres</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/actiondashboard">Action</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/adventuredashboard">Adventure</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fightingdashboard">Fighting</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fpsdashboard">FPS</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/miscdashboard">Misc</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/platformdashboard">Platform</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/puzzledashboard">Puzzle</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/racingdashboard">Racing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/roleplayingdashboard">Role-Playing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/simulationdashboard">Simulation</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/sportsdashboard">Sports</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/strategydashboard">Strategy</a></button>&nbsp;&nbsp;&nbsp;
+        <!-- <a href="https://github.com/mshawn12/video-game-sales-analysis"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEX///+6u711eHtaXWFMUFQkKS7j5OQwNTrx8fKRk5bV1tc+Q0esrrDIycqDhomeoaNna24OVeM5AAAA/ElEQVR4AX3T0a6EIAwE0AEY2oLr3v//2iumIaC650UfJkw1BZMQUyZzigEPShQOEhUXJlyIYaaZN1kxVOEDqXAqfCQ6nZ9j46TFRDL7fDxswNbIdBDKBgQeDIciPHwAqJcWBVBHSaQHVoVdBCD0ilVgJ+NFcaGNXUC8HeA2djsSO8Udu4TsVXeJhwx27TVA8IQHjR3a7xka0ttXBB9y9+fLCLsH+X3+DQxjGQwLGyuBSFrIZNs/cJ9vI70BKKRUzeRYkD8OxU+TUuQsPFU6em8mI9Rsg6PL09JWTNal9bWPZrYGpN4uzhLIipldA4aLsovAicSCOy0jrBj+Adb8C4ZUKU58AAAAAElFTkSuQmCC" ></img></a> -->
+    </strong></div>
+    <br/>
+    <br/>
+
+
+<!-- Chart setup -->
+ <div id="genremetadata"></div>
+  <table>
+    <tr>
+    <td>
+  <div id="criticgauge"></div>
+  </td>
+  <td>
+  <div id="usergauge"></div>
+  </td>
+  </tr>
+</table>
+<div id="plotscores"></div>
+<br/><br/>
+<div id="bubble"></div>
+<br/><br/>
+  <div id="plotregions"></div>
+  <br/><br/>
+  <center><h4>Sales by Country</h4></center><br/>
+  <div id="regions_div"></div>
+  <br/><br/>
+  <div id="top10"></div>
+  <br/>
   <div id="plot"></div>
- <script>
-    // var data = {{games|tojson|safe}};
-    // var data = {{games}}
-    // var data = "http://127.0.0.1:5000/api/v1.0/completedata"
-//     console.log(data);
-//    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((gamedata)=>{
-//     console.log(gamedata)
-//    })
+  <br/><br/>
+  <div id="plot4"></div>
+  <br/><br/><br/>
+  <center><h3>Critic Score Breakout | Developers & Publishers</h3></center><br/>
+  <div id="plot3"></div>
+  <br/><br/>
+  <div id="plot2"></div>
+  <br/><br/>
+  <div id="plotmap"></div>
+  <br/><br/>
+  <div id="map"></div>
 
 
-//     var trace1 = {
-//     x: data.criticscore,
-//     y: data.globalsales,
-//     mode: 'markers',
-//     marker: {
-//         size: [40, 60, 80, 100]
-//     }
-//     };
+<script>
 
-//     var data = [trace1];
-
-//     var layout = {
-//     title: 'Marker Size',
-//     showlegend: false,
-//     height: 600,
-//     width: 600
-//     };
-
-//     Plotly.newPlot('plot', data, layout);
-
-//     console.log(data) -->
-
-    let selector = d3.select("#selDataset");
-    
-
-    //call API
-    d3.json("http://127.0.0.1:5000/api/v1.0/genres").then((data) =>{
+    d3.json("/api/v1.0/completedata").then((data) =>{
         // console.log(data.names);
         let gamedata = data;
 
-        //loop through and generate option links from dataset
+        // Create empty lists
+        let genres = []
+        let totalglobalsales = []
+        let totalnasales = []
+        let totaleusales = []
+        let totaljpsales = []
+        let names = []
+        let developers = []
+        let publishers = []
+        let criticscores = []
+        let userscores = []
+        let ratings = []
+        let gamecount = names.length
+
+        //loop through dataset to generate lists
+        // console.log(gamedata)
         for(let index = 0; index < gamedata.length; index++){
-            console.log(gamedata[index].genre)
-            selector.append("option").text(gamedata[index].genre).property("value", gamedata[index].genre);
-            
-        }
-        let gameOne = gamedata[0];
+            totalglobalsales.push(gamedata[index].globalsales)
+            genres.push(gamedata[index].genre)
+            names.push(gamedata[index].name)
+            developers.push(gamedata[index].developer)
+            publishers.push(gamedata[index].publisher)
+            ratings.push(gamedata[index].rating)
+            criticscores.push(gamedata[index].criticscore)
+            userscores.push(gamedata[index].userscore)
+            totalnasales.push(gamedata[index].nasales)
+            totaleusales.push(gamedata[index].eusales)
+            totaljpsales.push(gamedata[index].jpsales)
 
-        //generateCharts(gameOne);
-        // generateMetadata(sampleOne);
-
-    })
-    
-
-</script>
-
-<script>
-    d3.json("http://127.0.0.1:5000/api/v1.0/completedata").then((data) =>{
-        // console.log(data.names);
-        let salesdata = data;
-let genres = []
-let totalglobalsales = []
-        //loop through and generate option links from dataset
-        console.log(salesdata)
-        for(let index = 0; index < salesdata.length; index++){
-            totalglobalsales.push(salesdata[index].globalsales)
-            genres.push(salesdata[index].genre)
         }
         
        
+        // console.log(totalglobalsales)
+        // console.log(genres)
+        // console.log(names)
+        // console.log(developers)
+        // console.log(publishers)
+        // console.log(criticscores)
+        // console.log(userscores)
+        // console.log(ratings)
+
+// Gauge
+
+// User Gauge
+var usergaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: 7,
+    title: { text: "Avg. User Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 10] } }
+  }
+];
+
+var usergaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
+
+
+// Chart scores
+var tracecritic = {
+            x: genres,
+            y: criticscores,
+            type: 'bar',
+            name: 'Critic Review Scores',
+            marker: {
+                color: 'rgb(142,124,195)'
+            }
+
+        }   
+
+var traceuser = {
+            x: genres,
+            y: userscores,
+            type: 'bar',
+            name: 'User Review Scores',
+            marker: {
+                color: 'rgb(8,48,107)'
+            }
+
+        }   
+
+        var datascores = [tracecritic,traceuser];
+
+        
+        var layoutscores = {
+            title: "Critic Score (Out of 100) | User Score (Out of 10)"       
+             
+        }
+
+        Plotly.newPlot('plotscores', datascores, layoutscores);
+       
+        console.log(names)
         console.log(totalglobalsales)
-        console.log(genres)
 
         var trace = {
-            x: genres,
+            x: names,
             y: totalglobalsales,
             type: 'bar'
 
@@ -130,20 +234,351 @@ let totalglobalsales = []
         var data = [trace];
         
         var layout = {
-            title: "test"
+            title: "Global Sales | All Games",
+            xaxis: {
+                categoryorder:'array'
+            }      
              
         }
 
-        Plotly.newPlot('plot', data, layout)
+        Plotly.newPlot('plot', data, layout);
+
+// Chart 2
+var tracena = {
+            x: genres,
+            y: totalnasales,
+            type: 'bar',
+            name: 'NA Sales'
+
+        }   
+
+var traceeu = {
+            x: genres,
+            y: totaleusales,
+            type: 'bar',
+            name: 'EU Sales',
+            marker: {
+                color: 'rgb(142,124,195)'
+            }
+
+        }   
+
+var tracejp = {
+            x: genres,
+            y: totaljpsales,
+            type: 'bar',
+            name: 'JP Sales',
+            marker: {
+                color: 'rgb(247,59,132)'
+            }
+
+        }   
+        var dataregions = [tracena,traceeu,tracejp];
+
+        
+        var layoutregions = {
+            title: "Regional Sales by Genre"            
+             
+        }
+
+        Plotly.newPlot('plotregions', dataregions, layoutregions);
+
+
+// Chart 3
+        var trace2 = {
+            x: publishers,
+            y: criticscores,
+            type: 'bar'
+
+        }   
+        var data2 = [trace2];
+        
+        var layout2 = {
+            title: "Critic Score by Publisher"
+             
+        }
+
+        Plotly.newPlot('plot2', data2, layout2)
+
+        var trace3 = {
+            x: developers,
+            y: criticscores,
+            type: 'bar'
+
+        }   
+        var data3 = [trace3];
+        
+        var layout3 = {
+            title: "Critic Score by Developer"
+             
+        }
+
+        Plotly.newPlot('plot3', data3, layout3)
+
+        var trace4 = {
+            x: ratings,
+            y: totalglobalsales,
+            type: 'bar',
+            mode: 'markers'
+
+        }   
+        var data4 = [trace4];
+        
+        var layout4 = {
+            title: "Global Sales by Rating",
+            xaxis: {
+                categoryorder:'array'
+            }
+             
+        }
+
+        Plotly.newPlot('plot4', data4, layout4)
+        
+        let bubbleLayout = {
+            title: "",
+            margin: {t: 0},
+            hovermode: "closest",
+            xaxis: {title: "Critic Score vs. Global Sales"},
+            margin: {t: 30}
+
+        };
+
+        let bubbleData = [
+            {
+                x: criticscores,
+                y: totalglobalsales,
+                text: genres,
+                mode: "markers",
+                marker: {
+                    size: totalglobalsales,
+                    color: criticscores,
+                    colorscale: "Bluered"        
+                }
+            }
+
+        ]
+        // Generate bubble chart
+        Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+
+    });
+
+</script>
+
+<!-- Pulling average critic scores & creating gauges -->
+<script>
+    d3.json("/api/v1.0/avggamecriticscore").then((data) =>{
+        let avggamecriticscore = data[0].avg;
+        // console.log(avggamecriticscore);
+
+
+var criticgaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: avggamecriticscore,
+    title: { text: "Avg. Critic Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 100] } }
+  }
+];
+
+var criticgaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('criticgauge', criticgaugedata, criticgaugelayout);
+
+    });
+
+</script>
+
+<!-- Pulling average user scores & creating gauges -->
+<script>
+    d3.json("/api/v1.0/avggameuserscore").then((data) =>{
+        let avggameuserscore = data[0].avg;
+        // console.log(avggameuserscore);
+
+
+var usergaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: avggameuserscore,
+    title: { text: "Avg. User Score" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 10] } }
+  }
+];
+
+var usergaugelayout = { 
+    width: 600, height: 400 
+};
+Plotly.newPlot('usergauge', usergaugedata, usergaugelayout);
+
+    });
+
+</script>
+
+<!-- Genre SALES Data -->
+
+<script>
+        d3.json("/api/v1.0/gamesales").then((salesdata) =>{
+        let totalgames = salesdata.length;
+        console.log(totalgames)
+        let topsalesname = salesdata[0].name;
+        // let topsalespublisher = salesdata[0].publisher;
+        // let topsalesdeveloper = salesdata[0].developer;  
+
+        d3.json("/api/v1.0/publishersales").then((salesdatapublisher) =>{
+        let topsalespublisher = salesdatapublisher[0].publisher;
+        
+        d3.json("/api/v1.0/developersales").then((salesdatadeveloper) =>{
+        let topsalesdeveloper = salesdatadeveloper[0].developer;
+        
+        d3.json("/api/v1.0/sumglobalsales").then((sumglobalsale) =>{
+        let sumglobalsales = sumglobalsale[0].sum;
+        
+        // console.log(topsales);
+
+        let PANEL = d3.select("#genremetadata");
+
+        PANEL.html(`<u>Sales Overview</u> > <strong>Total Games</strong>: ${totalgames}  &nbsp; 
+        <strong>Total Sales</strong>: $${sumglobalsales}  &nbsp; 
+        <strong>Top Game</strong>: ${topsalesname}  &nbsp; <strong>Top Publisher</strong>: ${topsalespublisher}
+        &nbsp; <strong>Top Developer</strong>: ${topsalesdeveloper}`);
+
+      
+    })
+})
+})
+    });
+</script>
+
+<!-- Map Script -->
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        d3.json("/api/v1.0/totalsales").then((data) =>{
+        let sumnasales = data[0].nasales;
+        let sumjpsales = data[0].jpsales;
+        // console.log(sumnasales);
+
+        // Load Google Charts
+      google.charts.load('current', {
+        'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+     
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Sales'],
+          ['United States', sumnasales],
+          ['Japan', sumjpsales]
+        ]);
+
+        var options = {
+            colorAxis: {colors: ['pink','purple']},
+            title: "Comparing Country Sales"
+            // legend:'bottomright'
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    })
+    </script>
+
+<!-- Top 10 Script -->
+
+
+<script>
+let top10games = []
+let top10gamesales= []
+
+    d3.json("/api/v1.0/gamesalestop10").then((salesdatatop10) =>{
+  
+        
+        for(let index = 0; index < salesdatatop10.length; index++){
+            top10gamesales.push(salesdatatop10[index].sum)
+            top10games.push(salesdatatop10[index].name)
+        }
+        
+        
+        
+        var top10trace = {
+            x: top10gamesales.reverse(),
+            y: top10games.reverse(),
+            testposition: 'auto',
+            marker: {
+                color: [
+                'rgba(204,204,214,1)','rgba(204,204,220,1)','rgba(204,204,224,1)','rgba(204,204,230,1)',
+                'rgba(204,204,234,1)','rgba(204,204,240,1)','rgba(204,204,244,1)','rgba(204,204,250,1)','rgba(204,204,254,1)',
+                'rgb(142,124,195)']
+            },
+            type: 'bar',
+            orientation: 'h'
+
+        }   
+        var top10data = [top10trace];
+        
+        var top10layout = {
+            title: "Global Sales | Top 10 Games",
+            yaxis: {
+                automargin: true
+    }             
+        }
+
+        Plotly.newPlot('top10', top10data, top10layout)
+    });
+
+</script>
+
+
+<footer>
+<!-- <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true"> -->
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Group 1: Alvaro, Dozie, Emmanuel, Frantzy, Jonathan, Mickey
+        <br>Github: <a href="https://github.com/mshawn12/video-game-sales-analysis" target="_parent" title="View the full details of our project here">Video Game Analysis</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- Preloader Javascript -->
+<script>        
+    window.addEventListener('load', () => {
+        const preload = document.querySelector('js-preloader');
+        setTimeout( function() {
+            preload.classList.add('preload-finish');
+        }, 1000000 );
+});
+
+    </script>
+    
+<script>
+    var loader = document.getElementById("js-preloader");
+    window.addEventListener("load",function(){
+        loader.style.display = "none";
+
+
     })
 
 </script>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./static/js/app.js"></script>
 
-  
+<!-- Scripts -->
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<!-- <script src="/static/js/app.js"></script> -->
 </body>
 
 </html>

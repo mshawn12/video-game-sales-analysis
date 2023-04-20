@@ -52,16 +52,32 @@ ON vgsc.uniqueid= vgi.uniqueid
 
 SELECT * FROM completedata
 
-CREATE TABLE jsondata AS
-SELECT vgi.uniqueid AS [game.uniqueid],vgi.name AS [game.name], vgi.yearreleased AS [game.yearreleased], vgi.genre AS [game.genre], vgi.publisher AS [game.publisher], vgi.developer AS [game.developer], 
-	vgi.rating AS [game.rating],vgs.nasales AS [game.nasales], vgs.eusales AS [game.eusales], vgs.jpsales AS [game.jpsales], 
-	vgs.othersales AS [game.othersales], vgs.globalsales AS [game.globalsales],
-	vgsc.criticscore AS [game.criticscore], vgsc.criticcount AS [game.criticcount], vgsc.userscore AS [game.userscore], vgsc.usercount AS [game.usercount]
+CREATE TABLE jsondata2 AS
+SELECT vgi.uniqueid AS game.uniqueid, vgi.name AS game.name, vgi.yearreleased AS game.yearreleased, vgi.genre AS game.genre, vgi.publisher AS game.publisher, vgi.developer AS game.developer, 
+	vgi.rating AS game.rating,vgs.nasales AS game.nasales, vgs.eusales AS game.eusales, vgs.jpsales AS game.jpsales, 
+	vgs.othersales AS game.othersales, vgs.globalsales AS game.globalsales,
+	vgsc.criticscore AS game.criticscore, vgsc.criticcount AS game.criticcount, vgsc.userscore AS game.userscore, vgsc.usercount AS game.usercount
 FROM video_game_sales AS vgs JOIN video_game_info AS vgi
 ON vgs.uniqueid = vgi.uniqueid
 JOIN video_game_scores AS vgsc
 ON vgsc.uniqueid= vgi.uniqueid
-FOR JSON PATH, ROOT('game');
+FOR JSON PATH, ROOT(game);
 
 CREATE TABLE jsondata AS
 SELECT row_to_json(completedata)from completedata;
+
+SELECT * FROM jsondata
+
+SELECT * FROM completedata
+
+CREATE TABLE json3 AS
+SELECT json_agg(row_to_json(completedata)) :: text
+FROM completedata
+
+SELECT * FROM json3
+
+
+CREATE TABLE json4 AS
+SELECT json_object_agg(each.genre, each.names, each.globalsales) FROM (
+    SELECT genre, array_agg(name) as names FROM completedata GROUP BY genre
+) AS each;

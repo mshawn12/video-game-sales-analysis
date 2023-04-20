@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Group 1 - Video Game Analysis</title>
+  <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="/static/css/fontawesome.css">
+
+  <!-- Group 1 CSS -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <!-- <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                <!-- ***** Logo Start ***** -->
+                <!-- <a href="index.html" class="logo"> -->
+                  <!-- <img src="http://127.0.0.1:5000/images/logo-v1.png" alt="">images/logo-v1.png -->
+                </a>
+                <!-- ***** Logo End ***** -->
+                <!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                  <li class="scroll-to-section"><a href="/" class="active">Dashboard</a></li>
+                  <li class="scroll-to-section"><a href="/home">Home</a></li>
+                  <li class="scroll-to-section"><a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Our Dataset</a></li>
+                  <li class="scroll-to-section"><a href="/resources">Resources Used</a></li>
+                  <li class="scroll-to-section"><a href="/team">Team Members</a></li>
+                  <!-- <li class="scroll-to-section"><a href="/dashboard">Blog</a></li>
+                  <li class="scroll-to-section"><a href="/dashboard">Contact</a></li> -->
+                   
+                  <li class="scroll-to-section"><div class="border-first-button"><a href="https://github.com/mshawn12/video-game-sales-analysis">Github</a></div></li> 
+                </ul>        
+                <!-- <a class='menu-trigger'>
+                    <span>Menu</span>
+                </a> -->
+                <!-- ***** Menu End ***** -->
+                
+              </nav>
+              
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- ***** Header Area End ***** -->
+
+
+<!-- Content Start -->
+
+
+  <div class="container">
+    <div class="row">
+        <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard-banner.png?raw=true" alt="Video Game Banner" width="100%">
+        <br/><br/>
+     <!-- <div class="col-md-12 jumbotron text-center"> -->
+        <div class="genre-title">
+        <center>RESOURCES USED</center>
+        </div>
+    <!-- </div> -->
+    </div>
+<p><center>
+<a href="https://www.free-css.com/free-css-templates/page290/digimedia">Free-CSS</a><br/>
+<a href="https://developers.google.com/chart">Google Charts</a><br/>
+<a href="https://jupyter.org/">Jupyter Notebook</a><br/>
+<a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a><br>
+<a href="https://www.quickdatabasediagrams.com/">QuickDBD</a><br/>
+<a href="https://www.pgadmin.org/">pgAdmin</a><br/>
+<a href="https://pptmon.com/video-game/">PPT Mon</a><br/>
+<a href="https://plotly.com/">Plotly</a><br/>
+<a href="https://code.visualstudio.com/">Visual Studio Code</a><br/>
+</p></center>
+    <!-- <div id="navigation"><strong>
+        <button><a href="/dashboard">All Genres</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/actiondashboard">Action</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/adventuredashboard">Adventure</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fightingdashboard">Fighting</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/fpsdashboard">FPS</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/miscdashboard">Misc</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/platformdashboard">Platform</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/puzzledashboard">Puzzle</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/racingdashboard">Racing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/roleplayingdashboard">Role-Playing</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/simulationdashboard">Simulation</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/sportsdashboard">Sports</a></button>&nbsp;&nbsp;&nbsp;<button><a href="/strategydashboard">Strategy</a></button>&nbsp;&nbsp;&nbsp;
+        <!-- <a href="https://github.com/mshawn12/video-game-sales-analysis"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEX///+6u711eHtaXWFMUFQkKS7j5OQwNTrx8fKRk5bV1tc+Q0esrrDIycqDhomeoaNna24OVeM5AAAA/ElEQVR4AX3T0a6EIAwE0AEY2oLr3v//2iumIaC650UfJkw1BZMQUyZzigEPShQOEhUXJlyIYaaZN1kxVOEDqXAqfCQ6nZ9j46TFRDL7fDxswNbIdBDKBgQeDIciPHwAqJcWBVBHSaQHVoVdBCD0ilVgJ+NFcaGNXUC8HeA2djsSO8Udu4TsVXeJhwx27TVA8IQHjR3a7xka0ttXBB9y9+fLCLsH+X3+DQxjGQwLGyuBSFrIZNs/cJ9vI70BKKRUzeRYkD8OxU+TUuQsPFU6em8mI9Rsg6PL09JWTNal9bWPZrYGpN4uzhLIipldA4aLsovAicSCOy0jrBj+Adb8C4ZUKU58AAAAAElFTkSuQmCC" ></img></a>
+    </strong></div> -->
+
+<footer>
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/footer-bg-v2.jpg?raw=true">
+</footer>
+<!-- Scripts -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- <script src="/static/js/app.js"></script> -->
+
+</body>
+
+</html>
