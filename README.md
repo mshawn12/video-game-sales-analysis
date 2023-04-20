@@ -183,7 +183,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 ## How to Run
 1. Download the project files & review the requirements.txt file
 2. Run the initial SQL queries and upload the provided CSVs to the corresponding tables
-```
+```sql
     CREATE TABLE video_game_info (
         uniqueid INT,
         name VARCHAR,
@@ -229,7 +229,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
     REFERENCES video_game_info ("uniqueid");
 ```
 3. Run the second set of SQL queries to create the completedata table. This will be the primary table used in the Flask API
-```
+```sql
     CREATE TABLE completedata AS
         SELECT vgi.uniqueid,vgi.name, vgi.yearreleased, vgi.genre, vgi.publisher, vgi.developer, vgi.rating,
         vgs.nasales, vgs.eusales, vgs.jpsales, vgs.othersales, vgs.globalsales,vgsc.criticscore, vgsc.criticcount, vgsc.userscore, vgsc.usercount
@@ -239,7 +239,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
         ON vgsc.uniqueid= vgi.uniqueid
 ```
 4. Create a config.py file and enter your pgAdmin credentials. Ensure to add this in the main folder
-```
+```python
 username = ""
 password = ""
 hostname = ""
@@ -253,7 +253,7 @@ db = "videogamesales"
 ```
 
 6. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
-```
+```bash
 python app.py
 ```
 7. Copy your development server into your browser and enjoy!
