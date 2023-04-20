@@ -3,7 +3,7 @@ Overview: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 
 ## Background Information
-The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle,/a> in order to test various hypotheses about video game genres.
+The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a> in order to test various hypotheses about video game genres.
 
 
 ## Process
