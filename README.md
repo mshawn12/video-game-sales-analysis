@@ -99,7 +99,8 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 - <strong><i>Obstacles faced</i></strong>:
     - Our data was not compatible with the templates provided in class. For this reason, the majority of our project needed to be created from scratch
     - Similar to the above, our Javascript could have been executed more efficiently, if our dataset was formatted properly
-    - Since our dataset used a combination of regions and countries, it made it difficult to plot data on maps as you can typically only choose one or the other, not both <br/><br/>
+    - Since our dataset used a combination of regions and countries, it made it difficult to plot data on maps as you can typically only choose one or the other, not both. For this reason, we were only able to create a GeoChart for countries and could not include Europe
+    - Learning curve with multiple team members using GitHub pulls, pushes, etc. <br/><br/>
 
 ### Final Dashboard Screenshots
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview">
