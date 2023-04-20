@@ -72,7 +72,8 @@ The team will leverage a Global Video Game Sales & Ratings dataset from Kaggle (
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview">
 
 
-- Step 14: After tinkering with the design to meet our standards, the primary dashboard.html file was then duplicated and filtered for each genre, and then linked in the sub-navigation
+- Step 14: After tinkering with the design to meet our standards, the primary dashboard.html file was then duplicated and filtered for each genre, and then linked in the sub-navigation. As noted above, each genre had its own dedicated html file (see below)
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/html_files.png?raw=true" alt="html files">
 
 ### Final Dashboard Screenshots
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview">
@@ -93,6 +94,11 @@ Resources Page
 About Us Page
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
 
+## Presentation
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTliq2bCuuZ1aUpOQgoQ2leJrPUoeHWWyvlDaemonJWKoX0efk7wgr1t5O6VZ5qLhATNK2P2T1WJ67q/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+-------------------------
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
 - Your visualization must include a Python Flask-powered API, HTML/CSS, JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.).
