@@ -7,7 +7,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 
 
 ## Process
-- <strong>Step 1</strong>: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
+- <strong><u>Step 1</u></strong>: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true" alt="Jupyter Notebook preview"><br/>
 <br/>
 
@@ -24,8 +24,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <br/>
 
 - Step 5: Once our database was connected, we leveraged Google Slides to mock up what our potential dashboard could look like. This allowed us to quickly move things around, plan what specific metrics / visualizations we wanted to develop, and identify the proper next steps to achieve our goal. This served as our starting point and helped us understand the details of what needed to be done and what questions we hoped to answer.
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_mockup.png?raw=true" alt="Preliminary dashboard mockup"><br/>
-<br/>
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_mockup.png?raw=true" alt="Preliminary dashboard mockup"><br/><br/>
 
 - Step 6: Once we had a general idea of what our dashboard could look like, we began developing a list of potential questions that our dashboard could answer. Building off our story from Project 1, where we assessed ticket prices & events for Music & Sports genres, our goal was to do an in-depth assessment to glean various insights on video game genres. Our goal as a group is to continue developing insights for producers, developers, and consumers alike in order to make data-driven decisions about the entertainment industry. Whether you’re a consumer looking for what new game to buy or a developer looking for what genres make the most sense to invest in, our interactive experiences are for you. List of potential questions:
     - What genre generates the most sales?
@@ -64,9 +63,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <br/>
 
 - Step 12: We then created a PANEL variable that leveraged the d3.select function to select the div where we would enter text-based data for each genre. This includes Total Games, Total Sales, Top Game, Top Publisher, and Top Developer, each of which has their own SQL queries and APIs in order to pull the top performer for each genre and category
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/panel_html.png?raw=true" alt="PANEL.html function"><br/>
-<br/>
-
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/panel_html.png?raw=true" alt="PANEL.html function"><br/><br/>
 
 - Step 13: Once all our visualizations and data points were finalized, we then focused on the HTML & CSS components to enhance the look & feel of our dashboard. By leveraging a combination of CSS from a <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> previous assignment</a>, templates from <a href="https://www.free-css.com/free-css-templates/page290/digimedia">free-css.com</a>, and custom CSS, we were able to develop a base design for all our pages. Each page would be filtered to only show data for a specific genre and also include a global navigation with links to the dashboard, our data set, resources used, about us section, and our GitHub repo as well as a sub-navigation on dashboard pages that allows users to flip between All Genres or a specific Genre.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_view.png?raw=true" alt="dashboard preview"><br/>
