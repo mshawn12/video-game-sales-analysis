@@ -1355,10 +1355,7 @@ def jpsalesgenre():
     return df.to_json(orient= "records")
 
 
-#
-#
 # Sales Data
-
 
 # Total Sales by Game - All Genres
 @app.route("/api/v1.0/gamesales")
@@ -1475,54 +1472,8 @@ def genreusercriticscore():
 def testdata():
     json_data = pd.read_json("/api/v1.0/completedata")
     return json_data.to_json(orient= "records")
-    # fig = go.Figure(data=[go.Table(
-    #     header=dict(values=list(json_data.columns),
-    #                 fill_color='paleturquoise',
-    #                 aligh='left'),
-    #     cells=dict(values=[json_data.globalsales],
-    #                fill_color='lavender',
-    #                align='left')
-    # )])
-
-    # fig.show()
 
 
-
-# @app.route("/api/v1.0/jsontest")
-# def jsontest():
-#     # conn = engine.connect()
-#     # query = "SELECT SUM(globalsales) FROM completedata"
-#     # df = pd.read_sql(query, conn)
-#     # # print(df)
-#     # return df.to_json(orient= "records")
-#     url = "http://127.0.0.1:5000/api/v1.0/completedata"
-#     response = requests.get(url).json()
-
-#     genres = []
-#     names = []
-
-#     counter = 0
-#     for game in response["genre"]:
-#         try:
-#             print(game["name"])
-#             print(game["genre"])
-#             genres.append(game["genre"])
-#             names.append(game["name"])
-#             counter = counter + 1
-
-#             if counter == 100:
-#                 break
-        
-#         except:
-#             print("error")
-
-#     raw_df = pd.DataFrame({
-#         "Genres": genres,
-#         "Names": names
-#     })
-
-#     print(raw_df)
-
-# Run 
+# Run Flask
 if __name__ == "__main__":
     app.run(debug= True)

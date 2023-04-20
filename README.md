@@ -86,7 +86,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 - <strong><i>Step 5</i></strong>: Once our database was connected, we leveraged Google Slides to mock up what our potential dashboard could look like. This allowed us to quickly move things around, plan what specific metrics / visualizations we wanted to develop, and identify the proper next steps to achieve our goal. This served as our starting point and helped us understand the details of what needed to be done and what questions we hoped to answer.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/dashboard_mockup.png?raw=true" alt="Preliminary dashboard mockup"><br/><br/>
 
-- <strong><i>Step 6</i></strong>: Once we had a general idea of what our dashboard could look like, we began developing a list of potential questions that our dashboard could answer. Building off our story from Project 1, where we assessed ticket prices & events for Music & Sports genres, our goal was to do an in-depth assessment to glean various insights on video game genres. Our goal as a group is to continue developing insights for producers, developers, and consumers alike in order to make data-driven decisions about the entertainment industry. Whether you’re a consumer looking for what new game to buy or a developer looking for what genres make the most sense to invest in, our interactive experiences are for you. List of potential questions:
+- <strong><i>Step 6</i></strong>: Once we had a general idea of what our dashboard could look like, we began developing a list of potential questions that our dashboard could answer. Building off our story from <a href="https://github.com/mshawn12/group1-ticketmaster">Project 1</a>, where we assessed ticket prices & events for Music & Sports genres, our goal was to do an in-depth assessment to glean various insights on video game genres. Our goal as a group is to continue developing insights for producers, developers, and consumers alike in order to make data-driven decisions about the entertainment industry. Whether you’re a consumer looking for what new game to buy or a developer looking for what genres make the most sense to invest in, our interactive experiences are for you. List of potential questions:
     - What genre generates the most sales?
     - What genre gets the best reviews?
     - What country generates the most sales?
@@ -183,7 +183,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 ## How to Run
 1. Download the project files & review the requirements.txt file
 2. Run the initial SQL queries and upload the provided CSVs to the corresponding tables
-```
+```sql
     CREATE TABLE video_game_info (
         uniqueid INT,
         name VARCHAR,
@@ -229,7 +229,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
     REFERENCES video_game_info ("uniqueid");
 ```
 3. Run the second set of SQL queries to create the completedata table. This will be the primary table used in the Flask API
-```
+```sql
     CREATE TABLE completedata AS
         SELECT vgi.uniqueid,vgi.name, vgi.yearreleased, vgi.genre, vgi.publisher, vgi.developer, vgi.rating,
         vgs.nasales, vgs.eusales, vgs.jpsales, vgs.othersales, vgs.globalsales,vgsc.criticscore, vgsc.criticcount, vgsc.userscore, vgsc.usercount
@@ -239,18 +239,24 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
         ON vgsc.uniqueid= vgi.uniqueid
 ```
 4. Create a config.py file and enter your pgAdmin credentials. Ensure to add this in the main folder
-```
+```python
 username = ""
 password = ""
 hostname = ""
 port = ""
 db = "videogamesales"
 ```
-5. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
+
+5. Install psycopg2, if necessary
+```bash
+!pip install psycopg2
 ```
+
+6. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
+```bash
 python app.py
 ```
-6. Copy your development server into your browser and enjoy!
+7. Copy your development server into your browser and enjoy!
 
 -------------------------
 ## Requirements
