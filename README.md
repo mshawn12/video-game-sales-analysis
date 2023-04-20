@@ -1,7 +1,8 @@
 # Video Game Analysis
-Overview: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true"><br/>
-Team Members: Alvaro Aquino, Dozie Kingsley, Emmanuel Garcia, Frantzy Francois, Jonathan Pokorny, & Mickey Young
+<strong><i>Overview</i></strong>: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
+<br/><br/>
+<strong><i>Team Members</i></strong>: Alvaro Aquino, Dozie Kingsley, Emmanuel Garcia, Frantzy Francois, Jonathan Pokorny, & Mickey Young
 
 ## Background Information
 The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a> in order to test various hypotheses about video game genres.
