@@ -181,8 +181,8 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 - View presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
 
 ## How to Run
-1. Download the project files
-2. Run the initial SQL queries and upload the provided csvs to the corresponding tables
+1. Download the project files & review the requirements.txt file
+2. Run the initial SQL queries and upload the provided CSVs to the corresponding tables
 ```
     CREATE TABLE video_game_info (
         uniqueid INT,
