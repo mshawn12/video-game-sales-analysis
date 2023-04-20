@@ -1,6 +1,7 @@
 # Video Game Analysis
 Overview: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true"><br/>
+Team Members: Alvaro Aquino, Dozie Kingsley, Emmanuel Garcia, Frantzy Francois, Jonathan Pokorny, & Mickey Young
 
 ## Background Information
 The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a> in order to test various hypotheses about video game genres.
@@ -60,7 +61,6 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 - <strong><i>Step 11</i></strong>: Identified an additional Javascript library, Google Charts, to leverage in our visuals per Project Requirements. We chose to use the <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart">GeoChart</a> visualization as it easily integrated with our existing infrastructure and allowed us to adjust the look and feel, which we would later use to match the color scheme of our CSS
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/google_geochart.png?raw=true" alt="Google GeoCharts example">
 <i>via Google </i><br/><br/>
-<br/>
 
 - <strong><i>Step 12</i></strong>: We then created a PANEL variable that leveraged the d3.select function to select the div where we would enter text-based data for each genre. This includes Total Games, Total Sales, Top Game, Top Publisher, and Top Developer, each of which has their own SQL queries and APIs in order to pull the top performer for each genre and category
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/panel_html.png?raw=true" alt="PANEL.html function"><br/><br/>
@@ -91,7 +91,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
     - While games in the Puzzle & Strategy genres generated the least Global Sales, they ranked amonst the highest in terms of Critic & User scores
 <br/>
 
-- <strong><i>Step 16: Using the template we selected from <a href="https://pptmon.com/">PPTMON</a>, we then began crafting our presentation. To create a consistent look and feel, these visuals were repurposed throughout all areas of our project deliverables<br/><br/>
+- <strong><i>Step 16</i></strong>: Using the template we selected from <a href="https://pptmon.com/">PPTMON</a>, we then began crafting our presentation. To create a consistent look and feel, these visuals were repurposed throughout all areas of our project deliverables<br/><br/>
 
 - Obstacles faced:
     - Our data was not compatible with the templates provided in class. For this reason, the majority of our project needed to be created from scratch
@@ -108,13 +108,13 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <br/><br/>
 
 ### Other Site Areas
-About Page
+<strong><i>About Page</i></strong>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/homepage.png?raw=true" alt="About page">
 
-Resources Page
+<strong><i>Resources Page</i></strong>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/resources_page.png?raw=true" alt="Resources page">
 
-About Us Page
+<strong><i>About Us Page</i></strong>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
 
 ## Presentation
