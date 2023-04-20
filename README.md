@@ -1,5 +1,6 @@
 # Video Game Analysis
 <strong><i>Overview</i></strong>: Using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
+<br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 <br/><br/>
 <strong><i>Team Members</i></strong>: Alvaro Aquino, Dozie Kingsley, Emmanuel Garcia, Frantzy Francois, Jonathan Pokorny, & Mickey Young
@@ -94,7 +95,7 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 
 - <strong><i>Step 16</i></strong>: Using the template we selected from <a href="https://pptmon.com/">PPTMON</a>, we then began crafting our presentation. To create a consistent look and feel, these visuals were repurposed throughout all areas of our project deliverables<br/><br/>
 
-- Obstacles faced:
+- <strong><i>Obstacles faced</i></strong>:
     - Our data was not compatible with the templates provided in class. For this reason, the majority of our project needed to be created from scratch
     - Similar to the above, our Javascript could have been executed more efficiently, if our dataset was formatted properly
     - Since our dataset used a combination of regions and countries, it made it difficult to plot data on maps as you can typically only choose one or the other, not both <br/><br/>
