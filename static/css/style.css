@@ -787,9 +787,9 @@ header
     text-align: center;
     box-shadow: 0px 5px 8px rgba(0,0,0,0.03);
   }
-  .header-area .container {
+  /* .header-area .container {
     padding: 0px;
-  }
+  } */
   .header-area .logo {
     margin-left: 30px;
   }
@@ -1616,12 +1616,12 @@ Portfolio
   margin-bottom: 80px;
 }
 
-.our-portfolio .container-fluid {
+/* .our-portfolio .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
   position: relative;
   z-index: 2;
-}
+} */
 
 .our-portfolio .item {
   position: relative;
@@ -2241,7 +2241,23 @@ responsive
     
     }
 
-    
-    
+    /* Square Grid */
+
+*{
+  margin: 0; padding:0;
+  box-sizing:border-box;
+  outline: none;border:none;
+
+
+  
+}
+
+.container .box-container .box {
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border-radius:5px;
+  text-align:center;
+  padding:30px 20px;
+}
+
 
 }
