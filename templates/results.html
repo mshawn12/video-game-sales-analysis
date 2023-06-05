@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		    <h2>Salary Predictor</h2>
+	    </div>
+    </header>
+    
+            <div class="container">
+               
+                <div class="fieldset">
+                    <img src="https://media.giphy.com/media/xT0xeAqBxu7wd3Ie0o/giphy.gif"/>
+              
+                    <p style="margin:0px;"><b>Results</b></p>
+                   <h1>Your predicted salary with {{exp}} year of experience </h1>
+                   <h1>${{ output }}</h1>
+                </div>
+            </div>
+
+    </div>
+	
+	
+
+</body>
