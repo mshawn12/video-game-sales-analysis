@@ -5,10 +5,28 @@ import pandas as pd
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from pprint import pprint
+from sklearn.linear_model._base import _preprocess_data
 import json
 import plotly.graph_objects as go
+import pickle
+import csv
+import nltk
+nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('omw-1.4')
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import wordnet as wn
+from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from IPython.display import HTML
+from jinja2 import Template
+
+
 
 # Import credentials
 from config import username, password, hostname, port, db
@@ -17,6 +35,387 @@ from config import username, password, hostname, port, db
 app = Flask(__name__)
 
 engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{hostname}:{port}/{db}')
+
+# Load the model
+# model = pickle.load(open('./model.pkl','rb'))
+
+
+
+# Game Recommender Input
+
+game_query = {}
+
+
+# Main Routes
+
+# Recommender
+@app.route("/recommender")
+def recommender():
+    return render_template('recommender.html')
+
+@app.route("/error")
+def error():
+    return render_template('error.html')
+
+@app.route("/error",methods=['GET','POST'])
+def errorgamepassthrough():
+    if request.method=='POST':
+        game = request.form['gameinput']
+        # return game
+        # print(game)
+        index = len(game_query) + 1
+        game_query[index] = request.form.get('gameinput')
+        # Preprocessing functions
+        
+        # Error loop?
+        # if game_query[index] == "Please select a different game. Nothing in database""
+        #     return render_template('error.html')
+        # else:
+
+        def error_remove_stopwords(tokens):
+            stop_words = set(stopwords.words('english'))
+            filtered_tokens = [token for token in tokens if token.lower() not in stop_words]
+            return filtered_tokens
+
+        def error_lemmatize_tokens(tokens):
+            lemmatizer = WordNetLemmatizer()
+            lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens]
+            return lemmatized_tokens
+
+        # User input
+        user_input = request.form['gameinput']
+
+        # Preprocess user input
+        input_tokens = word_tokenize(user_input)
+        input_tokens = error_remove_stopwords(input_tokens)
+        input_tokens = error_lemmatize_tokens(input_tokens)
+
+        # Load CSV data
+        csv_file = 'video_game_cleaned_v2.csv'  # Replace with your CSV file path
+        rows = []
+        with open(csv_file, 'r') as file:
+            csv_reader = csv.reader(file)
+            for row in csv_reader:
+                rows.append(row)
+
+        # Preprocess and tokenize CSV data
+        documents = [' '.join(row) for row in rows]
+        corpus_tokens = [word_tokenize(doc) for doc in documents]
+        corpus_tokens = [error_remove_stopwords(tokens) for tokens in corpus_tokens]
+        corpus_tokens = [error_lemmatize_tokens(tokens) for tokens in corpus_tokens]
+
+        # Convert tokens back to strings for vectorization
+        corpus_texts = [' '.join(tokens) for tokens in corpus_tokens]
+
+        # Vectorize input and corpus texts
+        vectorizer = TfidfVectorizer()
+        vectorized_input = vectorizer.fit_transform([user_input])
+        vectorized_corpus = vectorizer.transform(corpus_texts)
+
+        # Compute cosine similarity between input and corpus
+        cosine_similarities = cosine_similarity(vectorized_input, vectorized_corpus).flatten()
+
+        # Find indices of rows with the highest cosine similarity
+        top_similar_indices = cosine_similarities.argsort()[::-1]
+
+        # Define the number of top matches you want to retrieve
+        top_matches_count = 1
+
+        # Get the top matching rows
+        top_matching_rows = [rows[i] for i in top_similar_indices[:top_matches_count]]
+
+        # Print the top matching rows
+        print(f"Top {top_matches_count} matching rows:")
+        for row in top_matching_rows:
+            input_video_game = row[1].lower()
+    
+        print(input_video_game)
+        # if statement?
+        if input_video_game =="*********":
+            return render_template('error.html')
+        
+        else:
+
+            game_match=input_video_game
+            df = pd.read_csv('https://raw.githubusercontent.com/mshawn12/video-game-sales-analysis/main/resources/video_game_cleaned.csv')
+            df = df.drop_duplicates(subset='name')
+            sample_size = 4420
+            df = df.sample(n=sample_size, replace=False, random_state=390)
+
+            df = df.reset_index()
+            df = df.drop('index',axis=1)
+            def clean_text_pub(publisher):
+                result = str(publisher).lower()
+                return(result.replace(' ',''))
+            df['publisher'] = df['publisher'].apply(clean_text_pub)
+            def clean_text_dev(developer):
+                result = str(developer).lower()
+                return(result.replace(' ',''))
+            df['developer'] = df['developer'].apply(clean_text_dev)
+            df['name'] = df['name'].str.lower()
+            df['publisher'] = df['publisher'].str.lower()
+            df['genre'] = df['genre'].str.lower()
+            df['developer'] = df['developer'].str.lower()
+            df2 = df.drop(['nasales', 'eusales', 'jpsales', 'othersales', 'globalsales',
+        'criticscore', 'criticcount', 'userscore', 'usercount'],axis=1)
+
+            df2['data'] = df2[df2.columns[1:]].apply(lambda x: ' '.join(x.dropna().astype(str)),axis=1)
+            vectorizer = CountVectorizer()
+            vectorized = vectorizer.fit_transform(df2['data'])
+            similarities = cosine_similarity(vectorized)
+            df = pd.DataFrame(similarities, columns=df['name'], index=df['name']).reset_index()
+            recommendations = pd.DataFrame(df.nlargest(21,input_video_game)['name'])
+            recommendations = recommendations[recommendations['name']!=input_video_game]
+            recommendations_list = recommendations['name'].values.tolist()
+            rec_1 = recommendations_list[0]
+            rec_2 = recommendations_list[1]
+            rec_3 = recommendations_list[2]
+            rec_4 = recommendations_list[3]
+            rec_5 = recommendations_list[4]
+            rec_6 = recommendations_list[5]
+            rec_7 = recommendations_list[6]
+            rec_8 = recommendations_list[7]
+            rec_9 = recommendations_list[8]
+            rec_10 = recommendations_list[9]
+            rec_11 = recommendations_list[10]
+            rec_12 = recommendations_list[11]
+            rec_13 = recommendations_list[12]
+            rec_14 = recommendations_list[13]
+            rec_15 = recommendations_list[14]
+            rec_16 = recommendations_list[15]
+            rec_17 = recommendations_list[16]
+            rec_18 = recommendations_list[17]
+            rec_19 = recommendations_list[18]
+            rec_20 = recommendations_list[19]
+            # list_template = Template("""
+            # <table>
+            #     <tr>
+            #         <th>Game</th>
+            #     </tr>
+            #     <tr>
+            #     {% for row in table %}
+            #         <tr>
+            #             <td>{{ row[0] }}</td>
+            #         </tr>
+            #     {% endfor %}
+            # </table>
+            # """)
+            # recommendations_template = list_template.render(table=recommendations_list)
+
+            # recommendations_html = recommendations.to_html(index=False)
+            # recommendations_df = recommendations(index=False)
+            # recommendations_df = open('results.html','w')
+            # recommendations_df = write(recommendations_html)
+            # recommendations_df.close()
+            # HTML(recommendations.to_html(classes='table table-stripped'))
+
+
+            # recommendations_df
+            print('Here are some recommended video games for you from Group 1')
+            print(recommendations)
+
+
+        # return render_template('pass.html',game=game,game_match=game_match,game_recommendations=recommendations_html)
+        # return render_template('pass.html',game=game,game_match=game_match,game_recommendations=recommendations)
+        return render_template('pass.html',game=game,game_match=game_match,rec_1 = rec_1,rec_2 = rec_2,rec_3 = rec_3,rec_4 = rec_4,rec_5 = rec_5,rec_6 = rec_6,rec_7 = rec_7,rec_8 = rec_8
+            ,rec_9 = rec_9,rec_10 = rec_10,rec_11 = rec_11,rec_12 = rec_12,rec_13 = rec_13,rec_14 = rec_14,rec_15 = rec_15,rec_16 = rec_16
+            ,rec_17 = rec_17,rec_18 = rec_18,rec_19 = rec_19,rec_20 = rec_20)
+    # return render_template('pass.html',game=game,game_match=game_match,game_recommendations=recommendations_template)
+    
+
+
+
+@app.route('/recommender',methods=['GET','POST'])
+def gamepassthrough():
+    if request.method=='POST':
+        game = request.form['gameinput']
+        # return game
+        # print(game)
+        index = len(game_query) + 1
+        game_query[index] = request.form.get('gameinput')
+        # Preprocessing functions
+        
+        # Error loop?
+        # if game == "********"
+        #     render_template(error.html
+        # else:
+
+        def remove_stopwords(tokens):
+            stop_words = set(stopwords.words('english'))
+            filtered_tokens = [token for token in tokens if token.lower() not in stop_words]
+            return filtered_tokens
+
+        def lemmatize_tokens(tokens):
+            lemmatizer = WordNetLemmatizer()
+            lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens]
+            return lemmatized_tokens
+
+        # User input
+        user_input = request.form['gameinput']
+
+        # Preprocess user input
+        input_tokens = word_tokenize(user_input)
+        input_tokens = remove_stopwords(input_tokens)
+        input_tokens = lemmatize_tokens(input_tokens)
+
+        # Load CSV data
+        csv_file = 'video_game_cleaned_v2.csv'  # Replace with your CSV file path
+        rows = []
+        with open(csv_file, 'r') as file:
+            csv_reader = csv.reader(file)
+            for row in csv_reader:
+                rows.append(row)
+
+        # Preprocess and tokenize CSV data
+        documents = [' '.join(row) for row in rows]
+        corpus_tokens = [word_tokenize(doc) for doc in documents]
+        corpus_tokens = [remove_stopwords(tokens) for tokens in corpus_tokens]
+        corpus_tokens = [lemmatize_tokens(tokens) for tokens in corpus_tokens]
+
+        # Convert tokens back to strings for vectorization
+        corpus_texts = [' '.join(tokens) for tokens in corpus_tokens]
+
+        # Vectorize input and corpus texts
+        vectorizer = TfidfVectorizer()
+        vectorized_input = vectorizer.fit_transform([user_input])
+        vectorized_corpus = vectorizer.transform(corpus_texts)
+
+        # Compute cosine similarity between input and corpus
+        cosine_similarities = cosine_similarity(vectorized_input, vectorized_corpus).flatten()
+
+        # Find indices of rows with the highest cosine similarity
+        top_similar_indices = cosine_similarities.argsort()[::-1]
+
+        # Define the number of top matches you want to retrieve
+        top_matches_count = 1
+
+        # Get the top matching rows
+        top_matching_rows = [rows[i] for i in top_similar_indices[:top_matches_count]]
+
+        # Print the top matching rows
+        print(f"Top {top_matches_count} matching rows:")
+        for row in top_matching_rows:
+            input_video_game = row[1].lower()
+    
+        print(input_video_game)
+       
+        if input_video_game =="*********":
+            return render_template('error.html')
+        else:
+            game_match=input_video_game
+            df = pd.read_csv('https://raw.githubusercontent.com/mshawn12/video-game-sales-analysis/main/resources/video_game_cleaned.csv')
+            df = df.drop_duplicates(subset='name')
+            sample_size = 4420
+            df = df.sample(n=sample_size, replace=False, random_state=390)
+
+            df = df.reset_index()
+            df = df.drop('index',axis=1)
+            def clean_text_pub(publisher):
+                result = str(publisher).lower()
+                return(result.replace(' ',''))
+            df['publisher'] = df['publisher'].apply(clean_text_pub)
+            def clean_text_dev(developer):
+                result = str(developer).lower()
+                return(result.replace(' ',''))
+            df['developer'] = df['developer'].apply(clean_text_dev)
+            df['name'] = df['name'].str.lower()
+            df['publisher'] = df['publisher'].str.lower()
+            df['genre'] = df['genre'].str.lower()
+            df['developer'] = df['developer'].str.lower()
+            df2 = df.drop(['nasales', 'eusales', 'jpsales', 'othersales', 'globalsales',
+        'criticscore', 'criticcount', 'userscore', 'usercount'],axis=1)
+
+            df2['data'] = df2[df2.columns[1:]].apply(lambda x: ' '.join(x.dropna().astype(str)),axis=1)
+            vectorizer = CountVectorizer()
+            vectorized = vectorizer.fit_transform(df2['data'])
+            similarities = cosine_similarity(vectorized)
+            df = pd.DataFrame(similarities, columns=df['name'], index=df['name']).reset_index()
+            recommendations = pd.DataFrame(df.nlargest(21,input_video_game)['name'])
+            recommendations = recommendations[recommendations['name']!=input_video_game]
+            recommendations_list = recommendations['name'].values.tolist()
+            rec_1 = recommendations_list[0]
+            rec_2 = recommendations_list[1]
+            rec_3 = recommendations_list[2]
+            rec_4 = recommendations_list[3]
+            rec_5 = recommendations_list[4]
+            rec_6 = recommendations_list[5]
+            rec_7 = recommendations_list[6]
+            rec_8 = recommendations_list[7]
+            rec_9 = recommendations_list[8]
+            rec_10 = recommendations_list[9]
+            rec_11 = recommendations_list[10]
+            rec_12 = recommendations_list[11]
+            rec_13 = recommendations_list[12]
+            rec_14 = recommendations_list[13]
+            rec_15 = recommendations_list[14]
+            rec_16 = recommendations_list[15]
+            rec_17 = recommendations_list[16]
+            rec_18 = recommendations_list[17]
+            rec_19 = recommendations_list[18]
+            rec_20 = recommendations_list[19]
+            # list_template = Template("""
+            # <table>
+            #     <tr>
+            #         <th>Game</th>
+            #     </tr>
+            #     <tr>
+            #     {% for row in table %}
+            #         <tr>
+            #             <td>{{ row[0] }}</td>
+            #         </tr>
+            #     {% endfor %}
+            # </table>
+            # """)
+            # recommendations_template = list_template.render(table=recommendations_list)
+
+            # recommendations_html = recommendations.to_html(index=False)
+            # recommendations_df = recommendations(index=False)
+            # recommendations_df = open('results.html','w')
+            # recommendations_df = write(recommendations_html)
+            # recommendations_df.close()
+            # HTML(recommendations.to_html(classes='table table-stripped'))
+
+
+            # recommendations_df
+            print('Here are some recommended video games for you from Group 1')
+            print(recommendations)
+
+
+        # return render_template('pass.html',game=game,game_match=game_match,game_recommendations=recommendations_html)
+        # return render_template('pass.html',game=game,game_match=game_match,game_recommendations=recommendations)
+        return render_template('pass.html',game=game,game_match=game_match,rec_1 = rec_1,rec_2 = rec_2,rec_3 = rec_3,rec_4 = rec_4,rec_5 = rec_5,rec_6 = rec_6,rec_7 = rec_7,rec_8 = rec_8
+            ,rec_9 = rec_9,rec_10 = rec_10,rec_11 = rec_11,rec_12 = rec_12,rec_13 = rec_13,rec_14 = rec_14,rec_15 = rec_15,rec_16 = rec_16
+            ,rec_17 = rec_17,rec_18 = rec_18,rec_19 = rec_19,rec_20 = rec_20)
+        # return render_template('pass.html',game=game,game_match=game_match,game_recommendations=recommendations_template)
+        
+
+
+# --------------------------------------------
+
+
+@app.route("/results")
+def results():
+    return render_template('results.html')
+
+
+# @app.route('/predict',methods=['POST'])
+# def predict():
+#     # Get the data from the POST request.
+#     if request.method == "POST":
+#         #data = request.get_json(force=True)
+#         print(request.form['exp'])
+#         data = float(request.form['exp'])
+#         print("Data", model.predict([[data]]))
+#         # Make prediction using model loaded from disk as per the data.
+#         prediction = model.predict([[data]])
+
+#         # Take the first value of prediction
+#         output = prediction[0]
+
+#         return render_template("results.html", output=output, exp=data)
+
+
+# Original 
 
 # Map routes
 @app.route("/api/v1.0/videogameinfo")
@@ -51,11 +450,6 @@ def test():
     name = "test"
     return render_template("test.html", games=data,name=name)
 
-
-
-
-
-# Main Routes
 
 @app.route("/home")
 def home():
