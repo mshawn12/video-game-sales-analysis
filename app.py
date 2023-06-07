@@ -65,12 +65,9 @@ def errorgamepassthrough():
         # print(game)
         index = len(game_query) + 1
         game_query[index] = request.form.get('gameinput')
+       
         # Preprocessing functions
         
-        # Error loop?
-        # if game_query[index] == "Please select a different game. Nothing in database""
-        #     return render_template('error.html')
-        # else:
 
         def error_remove_stopwords(tokens):
             stop_words = set(stopwords.words('english'))
@@ -132,7 +129,7 @@ def errorgamepassthrough():
         print(input_video_game)
         # if statement?
         if input_video_game =="*********":
-            return render_template('error.html')
+            return render_template('error.html',game=game)
         
         else:
 
@@ -234,11 +231,7 @@ def gamepassthrough():
         index = len(game_query) + 1
         game_query[index] = request.form.get('gameinput')
         # Preprocessing functions
-        
-        # Error loop?
-        # if game == "********"
-        #     render_template(error.html
-        # else:
+    
 
         def remove_stopwords(tokens):
             stop_words = set(stopwords.words('english'))
@@ -300,7 +293,7 @@ def gamepassthrough():
         print(input_video_game)
        
         if input_video_game =="*********":
-            return render_template('error.html')
+            return render_template('error.html',game=game)
         else:
             game_match=input_video_game
             df = pd.read_csv('https://raw.githubusercontent.com/mshawn12/video-game-sales-analysis/main/resources/video_game_cleaned.csv')
