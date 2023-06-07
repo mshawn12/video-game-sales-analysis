@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5FJ4VF5');</script>
+    <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -22,6 +29,10 @@
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FJ4VF5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -73,8 +84,11 @@
      <!-- <div class="col-md-12 jumbotron text-center"> -->
         <div class="genre-title">
         <!-- <center>Please enter a video game</center> -->
+        <center>
+            <h1>You searched for: "<em>{{game}} </em>"</h1><br/>
+        </center>
         <center><form name="search" acton="." method="post">
-            <label>Nothing found in database. Please try another query</label><br>
+            <font color="#2a2a2a"><h3><label>Nothing found in database. Please try another query</label></h3></font><br>
         <font color="#a450c7ff"><input type="text" name="gameinput"></font>
         <input type="submit" value="Submit">
         </form></center>
