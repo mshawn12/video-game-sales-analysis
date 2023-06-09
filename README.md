@@ -1,15 +1,116 @@
 # Video Game Analysis
-<strong><i>Overview</i></strong>: An interactive dashboard with 13 views powered by a database of over 6,800 rows using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
+## Table of Contents
+<a href='#overview'>Overview</a></br>
+<a href='#background-information'>Background Information</a></br>
+<a href='#presentation'>Presentation</a><br/>
+<a href='#how-to-run'>How to Run</a><br/>
+<a href='#video-game-genre-analysis'>Video Game Genre Analysis</a><br/>
+
+- <a href='#genre-analysis-process-process'>Genre Analysis Process</a><br/>
+- <a href='#final-dashboard-screenshots'>Final Dashboard Screenshots</a><br/>
+- <a href='#other-site-areas'>Other Site Areas</a><br/>
+
+<a href='#video-game-recommendation-engine'>Video Game Recommendation Engine</a><br/>
+
+- <a href='#video-game-recommendation-engine-process'></a><br/>
+<!-- - <a href='#'></a><br/> -->
+
+<a href='#requirements'>Requirements</a><br/>
+
+## Overview
+<strong><i>Overview</i></strong>: An interactive dashboard with 13 views powered by a database of over 6,800 rows using a Python Flask-powered API, HTML/CSS, Javascript, SQL, and machine learning to test hypotheses about video game sales and make video game recommendations based on user inputs
 <br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 <br/><br/>
 <strong><i>Team Members</i></strong>: Alvaro Aquino, Dozie Kingsley, Emmanuel Garcia, Erick Adame, Jonathan Pokorny, & Mickey Young
 
 ## Background Information
-The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a> in order to test various hypotheses about video game genres.
+The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a> in order to test various hypotheses about video game genres as well as develop a video game recommendation engine.
 
+## Presentation
+- View Genre Analysis presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
 
-## Process
+## How to Run
+1. Download the project files & review the requirements.txt file
+2. Run the initial SQL queries and upload the provided CSVs to the corresponding tables
+```sql
+    CREATE TABLE video_game_info (
+        uniqueid INT,
+        name VARCHAR,
+        yearreleased INT,
+        genre VARCHAR,
+        publisher VARCHAR,
+        developer VARCHAR,
+        rating VARCHAR,
+        CONSTRAINT pk_video_game_info PRIMARY KEY (
+        uniqueid
+     )
+);
+
+    CREATE TABLE video_game_sales (
+        uniqueid INT,
+        name VARCHAR,
+        nasales FLOAT,
+        eusales FLOAT,
+        jpsales FLOAT,
+        othersales FLOAT,
+        globalsales FLOAT,
+        CONSTRAINT pk_video_game_sales PRIMARY KEY (
+        uniqueid
+     )
+);
+
+    CREATE TABLE video_game_scores (
+        uniqueid INT,
+        name VARCHAR,
+        criticscore INT,
+        criticcount INT,
+        userscore FLOAT,
+        usercount INT,
+        CONSTRAINT pk_video_game_scores PRIMARY KEY (
+        uniqueid
+     )
+);
+
+    ALTER TABLE video_game_sales ADD CONSTRAINT fk_video_game_sales_uniqueid FOREIGN KEY("uniqueid")
+    REFERENCES video_game_info ("uniqueid");
+
+    ALTER TABLE video_game_scores ADD CONSTRAINT fk_video_game_scores_uniqueid FOREIGN KEY("uniqueid")
+    REFERENCES video_game_info ("uniqueid");
+```
+3. Run the second set of SQL queries to create the completedata table. This will be the primary table used in the Flask API
+```sql
+    CREATE TABLE completedata AS
+        SELECT vgi.uniqueid,vgi.name, vgi.yearreleased, vgi.genre, vgi.publisher, vgi.developer, vgi.rating,
+        vgs.nasales, vgs.eusales, vgs.jpsales, vgs.othersales, vgs.globalsales,vgsc.criticscore, vgsc.criticcount, vgsc.userscore, vgsc.usercount
+        FROM video_game_sales AS vgs JOIN video_game_info AS vgi
+        ON vgs.uniqueid = vgi.uniqueid
+        JOIN video_game_scores AS vgsc
+        ON vgsc.uniqueid= vgi.uniqueid
+```
+4. Create a config.py file and enter your pgAdmin credentials. Ensure to add this in the main folder
+```python
+username = ""
+password = ""
+hostname = ""
+port = ""
+db = "videogamesales"
+```
+
+5. Install psycopg2, if necessary
+```bash
+!pip install psycopg2
+```
+
+6. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
+```bash
+python app.py
+```
+7. Copy your development server into your browser and enjoy!
+
+# Video Game Genre Analysis
+
+## Genre Analysis Process Process
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/process.png?raw=true" alt="project process"><br/><br/>
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true" alt="Jupyter Notebook preview"><br/>
@@ -177,88 +278,62 @@ The team will leverage a Global Video Game Sales & Ratings dataset from <a href=
 <strong><i>About Us Page</i></strong>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
 
-## Presentation
-- View presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
-
-## How to Run
-1. Download the project files & review the requirements.txt file
-2. Run the initial SQL queries and upload the provided CSVs to the corresponding tables
-```sql
-    CREATE TABLE video_game_info (
-        uniqueid INT,
-        name VARCHAR,
-        yearreleased INT,
-        genre VARCHAR,
-        publisher VARCHAR,
-        developer VARCHAR,
-        rating VARCHAR,
-        CONSTRAINT pk_video_game_info PRIMARY KEY (
-        uniqueid
-     )
-);
-
-    CREATE TABLE video_game_sales (
-        uniqueid INT,
-        name VARCHAR,
-        nasales FLOAT,
-        eusales FLOAT,
-        jpsales FLOAT,
-        othersales FLOAT,
-        globalsales FLOAT,
-        CONSTRAINT pk_video_game_sales PRIMARY KEY (
-        uniqueid
-     )
-);
-
-    CREATE TABLE video_game_scores (
-        uniqueid INT,
-        name VARCHAR,
-        criticscore INT,
-        criticcount INT,
-        userscore FLOAT,
-        usercount INT,
-        CONSTRAINT pk_video_game_scores PRIMARY KEY (
-        uniqueid
-     )
-);
-
-    ALTER TABLE video_game_sales ADD CONSTRAINT fk_video_game_sales_uniqueid FOREIGN KEY("uniqueid")
-    REFERENCES video_game_info ("uniqueid");
-
-    ALTER TABLE video_game_scores ADD CONSTRAINT fk_video_game_scores_uniqueid FOREIGN KEY("uniqueid")
-    REFERENCES video_game_info ("uniqueid");
-```
-3. Run the second set of SQL queries to create the completedata table. This will be the primary table used in the Flask API
-```sql
-    CREATE TABLE completedata AS
-        SELECT vgi.uniqueid,vgi.name, vgi.yearreleased, vgi.genre, vgi.publisher, vgi.developer, vgi.rating,
-        vgs.nasales, vgs.eusales, vgs.jpsales, vgs.othersales, vgs.globalsales,vgsc.criticscore, vgsc.criticcount, vgsc.userscore, vgsc.usercount
-        FROM video_game_sales AS vgs JOIN video_game_info AS vgi
-        ON vgs.uniqueid = vgi.uniqueid
-        JOIN video_game_scores AS vgsc
-        ON vgsc.uniqueid= vgi.uniqueid
-```
-4. Create a config.py file and enter your pgAdmin credentials. Ensure to add this in the main folder
-```python
-username = ""
-password = ""
-hostname = ""
-port = ""
-db = "videogamesales"
-```
-
-5. Install psycopg2, if necessary
-```bash
-!pip install psycopg2
-```
-
-6. Open Anaconda Prompt/Terminal depending on your device and cd to your folder location and run
-```bash
-python app.py
-```
-7. Copy your development server into your browser and enjoy!
 
 -------------------------
+# Video Game Recommendation Engine
+
+## Overview of Video Game Recommendation Engine
+<strong><i>Overview</i></strong>: A python-powered video game recommendation engine that takes in user prompts or sentences in order to return 20 of the most similar games from the database
+<br/><br/>
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/video_game_recommendation_header_v2.png?raw=true">
+<br/><br/>
+## Presentation
+- View Genre Analysis presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
+
+## Video Game Recommendation Engine Process
+- <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies. We then used NLTK to generate an open-ended, text-based user-input option. That user input then underwent cosine similarity in order to vet the CSV file for the game that best matched the query. Once a best match was identified, that game was then cross-referenced with over 4,000 games in order to identify which games were most similar. From there, the top 20 most similar games to that best match are returned.
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-jupyter-notebook.png?raw=true" alt="Jupyter Notebook screenshot">
+<br/>
+<br/>
+
+- <strong><i>Step 2</i></strong>: We then continued to optimize the model until we found an approach that returned the best results. This took multiple iterations as various random states and sample sizes weren't returning the type of variety in recommendations that we were looking for. In addition, we needed to adjust the CSV and python file to fix an issue when no matches to the user input were found. Originally, if no matches were found, the model would automatically recommend the last game in our CSV, which was Zumba fitness challenge. Given that users expect recommendations to be highly personalized, we did not want users to get offended if Zumba Fitness Challenge was their top recommendation to every game they input.
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-optimization.png?raw=true" alt="Optimizing our model">
+<br/>
+<br/>
+
+- <strong><i>Step 3</i></strong>: Once we were satisfied with our model, we began the HTML integration. After mocking up potential designs in Google Slides, we began execution in VS Code. We first had to develop a page where users can enter their queries. This involved developing form fields and designing the user experience. Once the design was created, we were able to connect the form field inputs to our python files using specific IDs and variables. This allowed us to take HTML form entries and feed them into our recommendation model / python file.
+
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-query-screen.png?raw=true" alt="Recommendation Tool query screen">
+<br/>
+<br/>
+
+- <strong><i>Step 4</i></strong>: Once the HTML user input was fed into our python files, we then had to assign variables to all of the results that our model returned in order to display each video game recommendation. First we had to create the results page in HTML. The layout involved displaying the query, showing the game that best matched the user input, and displaying 20 games that were most similar to that best match. We chose to display the 20 recommendations as squares with titles that are clickabler. As a future enhancement, we hope to replace these colored squares with actual images of the video game cover as well as link to a description page / way to purchase the game.
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-results-page.png?raw=true" alt="Recommendation Tool results page">
+<br/>
+<br/>
+
+- <strong><i>Step 5</i></strong>: Next, we had to design an error page. This ensured that if users entered a query that returned no results, they would be redirected to an error page that informed them that nothing was found in our database as well as give them an opportunity to enter a new query. 
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-error-page.png?raw=true" alt="Recommendation Tool error page">
+<br/>
+<br/>
+
+- <strong><i>Step 6</i></strong>: Once all the HTML pages were created, we connected all of the experiences using Flask API routes, render_html, if/else statements, and more. This ensured that if users entered a valid query, they would be directed to a results page with 20 recommendations. If they entered an invalid query, they would be directed to the Error page where they could try a new query. We continued to tweak our HTML and design until it was to our liking.
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-flask.png?raw=true" alt="Recommendation Tool Flask API">
+<br/>
+<br/>
+
+- <strong><i>Step 7</i></strong>: After finishing the HTML, we then added Google Analytics to our site using a Google Tag Manager script, with a container that had custom analytics tags & triggers based on the types of data we wanted to collect. We understand that what people are searching for as well as what they are engaging with can be valuable intellectual property, so we launched these custom analytics in hopes of gaining data that could be fed into various machine learning models in the future.
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-google-analytics.png?raw=true" alt="Google Analytics dashboard">
+<br/>
+<br/>
+
+- <strong><i>Step 8</i></strong>: Once Google Analytics was up and running, we created a Looker Studio automated dashboard in order to have a quick way of viewing web analytics that helps us gain a pulse of how our site is performing as well as what users are most interested in
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-looker-studio.png?raw=true" alt="Looker Studio dashboard">
+<br/>
+<br/>
+
+-------------------------
+
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
 - Your visualization must include a Python Flask-powered API, HTML/CSS, JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.).

@@ -63,6 +63,7 @@ def errorgamepassthrough():
         game = request.form['gameinput']
         # return game
         # print(game)
+        
         index = len(game_query) + 1
         game_query[index] = request.form.get('gameinput')
        
