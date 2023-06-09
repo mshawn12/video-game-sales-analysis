@@ -5,9 +5,10 @@
 <a href='#presentation'>Presentation</a><br/>
 <a href='#how-to-run'>How to Run</a><br/>
 <a href='#video-game-genre-analysis'>Video Game Genre Analysis</a><br/>
-    - <a href='#process'>Process</a><br/>
-    - <a href='#final-dashboard-screenshots'>Final Dashboard Screenshots</a><br/>
-    - <a href='#other-site-areas'>Other Site Areas</a><br/>
+
+- <a href='#process'>Process</a><br/>
+- <a href='#final-dashboard-screenshots'>Final Dashboard Screenshots</a><br/>
+- <a href='#other-site-areas'>Other Site Areas</a><br/>
 <a href='#'>Video Game Recommendation Engine</a><br/>
     - <a href='#'></a><br/>
     - <a href='#'></a><br/>
@@ -106,7 +107,7 @@ python app.py
 
 # Video Game Genre Analysis
 
-## Process
+## Genre Analysis Process Process
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/process.png?raw=true" alt="project process"><br/><br/>
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load, clean, and export Excel files as CSVs as well as setting up sqlalchemy, config.py, .gitignore, pip install, etc.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/jupyter_notebook.png?raw=true" alt="Jupyter Notebook preview"><br/>
@@ -277,7 +278,8 @@ python app.py
 
 -------------------------
 # Video Game Recommendation Engine
-
+## Video Game Recommendation Engine Process
+- <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies
 
 -------------------------
 ## Requirements
