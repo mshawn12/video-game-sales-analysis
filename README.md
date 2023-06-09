@@ -283,43 +283,43 @@ python app.py
 # Video Game Recommendation Engine
 ## Video Game Recommendation Engine Process
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies. We then used NLTK to generate an open-ended, text-based user-input option. That user input then underwent cosine similarity in order to vet the CSV file for the game that best matched the query. Once a best match was identified, that game was then cross-referenced with over 4,000 games in order to identify which games were most similar. From there, the top 20 most similar games to that best match are returned.
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-jupyter-notebook.png?raw=true" alt="Jupyter Notebook screenshot">
 <br/>
 <br/>
 
 - <strong><i>Step 2</i></strong>: We then continued to optimize the model until we found an approach that returned the best results. This took multiple iterations as various random states and sample sizes weren't returning the type of variety in recommendations that we were looking for. In addition, we needed to adjust the CSV and python file to fix an issue when no matches to the user input were found. Originally, if no matches were found, the model would automatically recommend the last game in our CSV, which was Zumba fitness challenge. Given that users expect recommendations to be highly personalized, we did not want users to get offended if Zumba Fitness Challenge was their top recommendation to every game they input.
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-optimization.png?raw=true" alt="Optimizing our model">
 <br/>
 <br/>
 
 - <strong><i>Step 3</i></strong>: Once we were satisfied with our model, we began the HTML integration. After mocking up potential designs in Google Slides, we began execution in VS Code. We first had to develop a page where users can enter their queries. This involved developing form fields and designing the user experience. Once the design was created, we were able to connect the form field inputs to our python files using specific IDs and variables. This allowed us to take HTML form entries and feed them into our recommendation model / python file.
 
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-query-screen.png?raw=true" alt="Recommendation Tool query screen">
 <br/>
 <br/>
 
 - <strong><i>Step 4</i></strong>: Once the HTML user input was fed into our python files, we then had to assign variables to all of the results that our model returned in order to display each video game recommendation. First we had to create the results page in HTML. The layout involved displaying the query, showing the game that best matched the user input, and displaying 20 games that were most similar to that best match. We chose to display the 20 recommendations as squares with titles that are clickabler. As a future enhancement, we hope to replace these colored squares with actual images of the video game cover as well as link to a description page / way to purchase the game.
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-results-page.png?raw=true" alt="Recommendation Tool results page">
 <br/>
 <br/>
 
 - <strong><i>Step 5</i></strong>: Next, we had to design an error page. This ensured that if users entered a query that returned no results, they would be redirected to an error page that informed them that nothing was found in our database as well as give them an opportunity to enter a new query. 
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-error-page.png?raw=true" alt="Recommendation Tool error page">
 <br/>
 <br/>
 
 - <strong><i>Step 6</i></strong>: Once all the HTML pages were created, we connected all of the experiences using Flask API routes, render_html, if/else statements, and more. This ensured that if users entered a valid query, they would be directed to a results page with 20 recommendations. If they entered an invalid query, they would be directed to the Error page where they could try a new query. We continued to tweak our HTML and design until it was to our liking.
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-flask.png?raw=true" alt="Recommendation Tool Flask API">
 <br/>
 <br/>
 
 - <strong><i>Step 7</i></strong>: After finishing the HTML, we then added Google Analytics to our site using a Google Tag Manager script, with a container that had custom analytics tags & triggers based on the types of data we wanted to collect. We understand that what people are searching for as well as what they are engaging with can be valuable intellectual property, so we launched these custom analytics in hopes of gaining data that could be fed into various machine learning models in the future.
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-google-analytics.png?raw=true" alt="Google Analytics dashboard">
 <br/>
 <br/>
 
 - <strong><i>Step 8</i></strong>: Once Google Analytics was up and running, we created a Looker Studio automated dashboard in order to have a quick way of viewing web analytics that helps us gain a pulse of how our site is performing as well as what users are most interested in
-<img src="" alt="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-looker-studio.png?raw=true" alt="Looker Studio dashboard">
 <br/>
 <br/>
 -------------------------
