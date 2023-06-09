@@ -11,9 +11,12 @@
 - <a href='#other-site-areas'>Other Site Areas</a><br/>
 
 <a href='#video-game-recommendation-engine'>Video Game Recommendation Engine</a><br/>
+- <a href='#overview-of-video-game-recommendation-engine'>Overview of Recommendation Engine</a><br/>
+- <a href='#recommendation-tool-presentation'>Recommendation Engine Presentation</a><br/>
+- <a href='#video-game-recommendation-engine-process'>Recommendation Engine Process</a><br/>
+- <a href='#recommendation-tool-findings'>Recommendation Engine Findings</a><br/>
+- <a href='#recommendation-tool-limitations-and-future-enhancements'>Recommendation Engine Limitations & Future Enhancements</a><br/>
 
-- <a href='#video-game-recommendation-engine-process'></a><br/>
-<!-- - <a href='#'></a><br/> -->
 
 <a href='#requirements'>Requirements</a><br/>
 
@@ -287,10 +290,23 @@ python app.py
 <br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/video_game_recommendation_header_v2.png?raw=true">
 <br/><br/>
-## Presentation
-- View Genre Analysis presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
+
+<strong><i>How it works</i></strong>: 
+<br/><br/>
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-how-it-works.png?raw=true" alt="how it works">
+<br/><br/>
+
+<strong><i>Search options</i></strong>: 
+<br/><br/>
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommemdation-tool-search-options.png?raw=true">
+<br/><br/>
+
+
+## Recommendation Tool Presentation
+- View Recommendation Tool presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/main/resources/video_game_recommendation_tool.pdf">here</a>
 
 ## Video Game Recommendation Engine Process
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-process.png?raw=true" alt="Recommendation tool process">
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies. We then used NLTK to generate an open-ended, text-based user-input option. That user input then underwent cosine similarity in order to vet the CSV file for the game that best matched the query. Once a best match was identified, that game was then cross-referenced with over 4,000 games in order to identify which games were most similar. From there, the top 20 most similar games to that best match are returned.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-jupyter-notebook.png?raw=true" alt="Jupyter Notebook screenshot">
 <br/>
@@ -332,6 +348,11 @@ python app.py
 <br/>
 <br/>
 
+## Recommendation Tool Findings
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-findings.png?raw=true" alt="Recommendation Tool findings">
+
+## Recommendation Tool Limitations and Future Enhancements
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-enhancements.png?raw=true" alt="Recommendation tool limitations and future enhancements">
 -------------------------
 
 ## Requirements
@@ -354,4 +375,27 @@ The analysis process can be broken into two broad phases: (1) exploration and cl
 As you’ve learned, you’ll need to explore, clean, and reformat your data before you can begin answering your research questions. We recommend keeping track of these exploration and cleanup steps in a dedicated Jupyter notebook to keep you organized and make it easier to present your work later.
 
 After you’ve cleaned your data and are ready to start crunching numbers, you should track your work in a Jupyter notebook dedicated specifically to analysis. We recommend focusing your analysis on multiple techniques, such as aggregation, correlation, comparison, summary statistics, sentiment analysis, and time-series analysis. Don’t forget to include plots during both the exploration and analysis phases. Creating plots along the way can reveal insights and interesting trends in the data that you might not notice if you wait until you’re preparing for your presentation. Presentation requirements will be further explained in the next module.
+
+### Project 4 Requirements
+Data Model Implementation (25 points)
+- A Python script initializes, trains, and evaluates a model (10 points)
+- The data is cleaned, normalized, and standardized prior to modeling (5 points)
+- The model utilizes data retrieved from SQL or Spark (5 points)
+- The model demonstrates meaningful predictive power at least 75% classification accuracy or 0.80 R-squared. (5 points)
+
+Data Model Optimization (25 points)
+- The model optimization and evaluation process showing iterative changes made to the model and the resulting changes in model performance is documented in either a CSV/Excel table or in the Python script itself (15 points)
+- Overall model performance is printed or displayed at the end of the script (10 points)
+
+GitHub Documentation (25 points)
+- GitHub repository is free of unnecessary files and folders and has an appropriate .gitignore in use (10 points)
+- The README is customized as a polished presentation of the content of the project (15 points)
+
+Group Presentation (25 points)
+- All group members speak during the presentation. (5 points)
+- Content, transitions, and conclusions flow smoothly within any time restrictions. (5 points)
+- The content is relevant to the project. (10 points)
+- The presentation maintains audience interest. (5 points)
+
 <p align="center"><img src="https://media1.giphy.com/media/fAD9SMlNWp0k84Ra1G/giphy.gif?cid=ecf05e47ymo4d66y72dp78ty0vvfrzyls5equ8i5rchv0ln4&rid=giphy.gif&ct=g" alt="video game GIF via GIPHY.com" width="150"></p>
+
