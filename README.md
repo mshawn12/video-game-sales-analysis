@@ -288,7 +288,7 @@ python app.py
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/video_game_recommendation_header_v2.png?raw=true">
 <br/><br/>
 ## Presentation
-- View Genre Analysis presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
+- View Recommendation Tool presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/main/resources/video_game_recommendation_tool.pdf">here</a>
 
 ## Video Game Recommendation Engine Process
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies. We then used NLTK to generate an open-ended, text-based user-input option. That user input then underwent cosine similarity in order to vet the CSV file for the game that best matched the query. Once a best match was identified, that game was then cross-referenced with over 4,000 games in order to identify which games were most similar. From there, the top 20 most similar games to that best match are returned.
