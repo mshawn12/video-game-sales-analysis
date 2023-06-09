@@ -10,15 +10,15 @@
 - <a href='#final-dashboard-screenshots'>Final Dashboard Screenshots</a><br/>
 - <a href='#other-site-areas'>Other Site Areas</a><br/>
 
-<a href='#'>Video Game Recommendation Engine</a><br/>
+<a href='#video-game-recommendation-engine'>Video Game Recommendation Engine</a><br/>
 
-- <a href='#'></a><br/>
-- <a href='#'></a><br/>
+- <a href='#video-game-recommendation-engine-process'></a><br/>
+<!-- - <a href='#'></a><br/> -->
 
 <a href='#requirements'>Requirements</a><br/>
 
 ## Overview
-<strong><i>Overview</i></strong>: An interactive dashboard with 13 views powered by a database of over 6,800 rows using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
+<strong><i>Overview</i></strong>: An interactive dashboard with 13 views powered by a database of over 6,800 rows using a Python Flask-powered API, HTML/CSS, Javascript, SQL, and machine learning to test hypotheses about video game sales and make video game recommendations based on user inputs
 <br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/video_game_header.png?raw=true">
 <br/><br/>
@@ -322,7 +322,9 @@ python app.py
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-looker-studio.png?raw=true" alt="Looker Studio dashboard">
 <br/>
 <br/>
+
 -------------------------
+
 ## Requirements
 For Project 3, you will work with your group to tell a story using data visualizations. Here are the specific requirements:
 - Your visualization must include a Python Flask-powered API, HTML/CSS, JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.).
