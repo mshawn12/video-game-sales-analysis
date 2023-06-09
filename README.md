@@ -312,7 +312,7 @@ python app.py
 <br/>
 <br/>
 
-- <strong><i>Step 2</i></strong>: We then continued to optimize the model until we found an approach that returned the best results. This took multiple iterations as various random states and sample sizes weren't returning the type of variety in recommendations that we were looking for. In addition, we needed to adjust the CSV and python file to fix an issue when no matches to the user input were found. Originally, if no matches were found, the model would automatically recommend the last game in our CSV, which was Zumba fitness challenge. Given that users expect recommendations to be highly personalized, we did not want users to get offended if Zumba Fitness Challenge was their top recommendation to every game they input.
+- <strong><i>Step 2</i></strong>: We then continued to optimize the model until we found an approach that returned the best results. This took multiple iterations as various random states and sample sizes weren't returning the type of variety in recommendations that we were looking for. In addition, we needed to adjust the CSV and python file to fix an issue where when no matches to the user input were found. Originally, if no matches were found, the model would automatically recommend the last game in our CSV, which was Zumba Fitness Challenge. Given that users expect recommendations to be highly personalized, we did not want users to get offended if Zumba Fitness Challenge was their top recommendation to every game they input.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-optimization.png?raw=true" alt="Optimizing our model">
 <br/>
 <br/>
@@ -323,7 +323,7 @@ python app.py
 <br/>
 <br/>
 
-- <strong><i>Step 4</i></strong>: Once the HTML user input was fed into our python files, we then had to assign variables to all of the results that our model returned in order to display each video game recommendation. First we had to create the results page in HTML. The layout involved displaying the query, showing the game that best matched the user input, and displaying 20 games that were most similar to that best match. We chose to display the 20 recommendations as squares with titles that are clickabler. As a future enhancement, we hope to replace these colored squares with actual images of the video game cover as well as link to a description page / way to purchase the game.
+- <strong><i>Step 4</i></strong>: Once the HTML user input was fed into our model, we then had to assign variables to all of the results in order to display each video game recommendation. First we had to create the results page in HTML. The layout involved displaying the query, showing the game that best matched the user input, and displaying 20 games that were most similar to that best match. We chose to display the 20 recommendations as squares with titles that are clickable. As a future enhancement, we hope to replace these colored squares with actual images of the video game cover as well as link to a description page / way to purchase the game.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-results-page.png?raw=true" alt="Recommendation Tool results page">
 <br/>
 <br/>
