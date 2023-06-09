@@ -286,7 +286,7 @@ python app.py
 # Video Game Recommendation Engine
 
 ## Overview of Video Game Recommendation Engine
-<strong><i>Overview</i></strong>: A python-powered video game recommendation engine that takes in user prompts or sentences in order to return 20 of the most similar games from the database
+<strong><i>Overview</i></strong>: A python-powered video game recommendation engine that takes in user prompts or sentences in order to return 20 of the most similar games from the database. The goal is to generate a minimum viable product (MVP) and a proof of concept that is scalable.
 <br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/video_game_recommendation_header_v2.png?raw=true">
 <br/><br/>
@@ -317,7 +317,7 @@ python app.py
 <br/>
 <br/>
 
-- <strong><i>Step 3</i></strong>: Once we were satisfied with our model, we began the HTML integration. After mocking up potential designs in Google Slides, we began execution in VS Code. We first had to develop a page where users can enter their queries. This involved developing form fields and designing the user experience. Once the design was created, we were able to connect the form field inputs to our python files using specific IDs and variables. This allowed us to take HTML form entries and feed them into our recommendation model / python file.
+- <strong><i>Step 3</i></strong>: Once we were satisfied with our model, we generated a recommendation-engine-requirements.txt and began the HTML integration. After mocking up potential designs in Google Slides, we began execution in VS Code. We first had to develop a page where users can enter their queries. This involved developing form fields and designing the user experience. Once the design was created, we were able to connect the form field inputs to our python files using specific IDs and variables. This allowed us to take HTML form entries and feed them into our recommendation model / python file.
 
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-query-screen.png?raw=true" alt="Recommendation Tool query screen">
 <br/>
