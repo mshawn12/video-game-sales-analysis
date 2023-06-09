@@ -28,7 +28,7 @@
 The team will leverage a Global Video Game Sales & Ratings dataset from <a href="https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings">Kaggle</a> in order to test various hypotheses about video game genres as well as develop a video game recommendation engine.
 
 ## Presentation
-- View presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
+- View Genre Analysis presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
 
 ## How to Run
 1. Download the project files & review the requirements.txt file
@@ -281,6 +281,15 @@ python app.py
 
 -------------------------
 # Video Game Recommendation Engine
+
+## Overview of Video Game Recommendation Engine
+<strong><i>Overview</i></strong>: A python-powered video game recommendation engine that takes in user prompts or sentences in order to return 20 of the most similar games from the database
+<br/><br/>
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/video_game_recommendation_header_v2.png?raw=true">
+<br/><br/>
+## Presentation
+- View Genre Analysis presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/resources/group1_video_game_analysis.pdf">here</a>
+
 ## Video Game Recommendation Engine Process
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies. We then used NLTK to generate an open-ended, text-based user-input option. That user input then underwent cosine similarity in order to vet the CSV file for the game that best matched the query. Once a best match was identified, that game was then cross-referenced with over 4,000 games in order to identify which games were most similar. From there, the top 20 most similar games to that best match are returned.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-jupyter-notebook.png?raw=true" alt="Jupyter Notebook screenshot">
