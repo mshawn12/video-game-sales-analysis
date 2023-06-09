@@ -1,7 +1,17 @@
 # Video Game Analysis
 ## Table of Contents
-<a href='#overview'>Overview</a>
-<a href='#bacground-information'>Background Information</a>
+<a href='#overview'>Overview</a></br>
+<a href='#background-information'>Background Information</a></br>
+<a href='#presentation'>Presentation</a><br/>
+<a href='#how-to-run'>How to Run</a><br/>
+<a href='#video-game-genre-analysis'>Video Game Genre Analysis</a><br/>
+    - <a href='#process'>Process</a><br/>
+    - <a href='#final-dashboard-screenshots'>Final Dashboard Screenshots</a><br/>
+    - <a href='#other-site-areas'>Other Site Areas</a><br/>
+<a href='#'>Video Game Recommendation Engine</a><br/>
+    - <a href='#'></a><br/>
+    - <a href='#'></a><br/>
+<a href='#requirements'>Requirements</a><br/>
 
 ## Overview
 <strong><i>Overview</i></strong>: An interactive dashboard with 13 views powered by a database of over 6,800 rows using a Python Flask-powered API, HTML/CSS, Javascript and SQL to test hypotheses about video game sales
@@ -93,6 +103,8 @@ db = "videogamesales"
 python app.py
 ```
 7. Copy your development server into your browser and enjoy!
+
+# Video Game Genre Analysis
 
 ## Process
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/process.png?raw=true" alt="project process"><br/><br/>
@@ -261,6 +273,10 @@ python app.py
 
 <strong><i>About Us Page</i></strong>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
+
+
+-------------------------
+# Video Game Recommendation Engine
 
 
 -------------------------
