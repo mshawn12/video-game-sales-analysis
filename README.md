@@ -293,7 +293,7 @@ python app.py
 
 <strong><i>How it works</i></strong>: 
 <br/><br/>
-<img src="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-how-it-works.png?raw=true" alt="how it works">
 <br/><br/>
 
 <strong><i>Search options</i></strong>: 
@@ -306,7 +306,7 @@ python app.py
 - View Recommendation Tool presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/main/resources/video_game_recommendation_tool.pdf">here</a>
 
 ## Video Game Recommendation Engine Process
-<img src="" alt="Recommendation tool process">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-process.png?raw=true" alt="Recommendation tool process">
 - <strong><i>Step 1</i></strong>: Creating Jupyter Notebook to load and clean CSV files as well as import dependencies. We then used NLTK to generate an open-ended, text-based user-input option. That user input then underwent cosine similarity in order to vet the CSV file for the game that best matched the query. Once a best match was identified, that game was then cross-referenced with over 4,000 games in order to identify which games were most similar. From there, the top 20 most similar games to that best match are returned.
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-jupyter-notebook.png?raw=true" alt="Jupyter Notebook screenshot">
 <br/>
@@ -349,9 +349,10 @@ python app.py
 <br/>
 
 ## Recommendation Tool Findings
-<img src="" alt="Recommendation Tool findings">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-findings.png?raw=true" alt="Recommendation Tool findings">
+
 ## Recommendation Tool Limitations and Future Enhancements
-<img src="" alt="Recommendation tool limitations and future enhancements">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommendation-tool-enhancements.png?raw=true" alt="Recommendation tool limitations and future enhancements">
 -------------------------
 
 ## Requirements
