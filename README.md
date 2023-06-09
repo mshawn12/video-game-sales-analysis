@@ -11,7 +11,8 @@
 - <a href='#other-site-areas'>Other Site Areas</a><br/>
 
 <a href='#video-game-recommendation-engine'>Video Game Recommendation Engine</a><br/>
-
+- <a href='#overview-of-video-game-recommendation-engine'></a><br/>
+- <a href='#recommendation-tool-presentation'></a><br/>
 - <a href='#video-game-recommendation-engine-process'></a><br/>
 <!-- - <a href='#'></a><br/> -->
 
@@ -287,7 +288,8 @@ python app.py
 <br/><br/>
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/video_game_recommendation_header_v2.png?raw=true">
 <br/><br/>
-## Presentation
+
+## Recommendation Tool Presentation
 - View Recommendation Tool presentation <a href="https://github.com/mshawn12/video-game-sales-analysis/blob/main/resources/video_game_recommendation_tool.pdf">here</a>
 
 ## Video Game Recommendation Engine Process
