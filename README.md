@@ -12,10 +12,10 @@
 
 <a href='#video-game-recommendation-engine'>Video Game Recommendation Engine</a><br/>
 - <a href='#overview-of-video-game-recommendation-engine'>Overview of Recommendation Engine</a><br/>
-- <a href='#recommendation-tool-presentation'></a>Recommendation Engine Presentation<br/>
-- <a href='#video-game-recommendation-engine-process'></a>Recommendation Engine Process<br/>
-- <a href='#recommendation-tool-findings'></a><br/>
-- <a href='#recommendation-tool-limitations-and-future-enhancements'></a><br/>
+- <a href='#recommendation-tool-presentation'>Recommendation Engine Presentation</a><br/>
+- <a href='#video-game-recommendation-engine-process'>Recommendation Engine Process</a><br/>
+- <a href='#recommendation-tool-findings'></a>Recommendation Engine Findings<br/>
+- <a href='#recommendation-tool-limitations-and-future-enhancements'>Recommendation Engine Limitations & Future Enhancements</a><br/>
 
 
 <a href='#requirements'>Requirements</a><br/>
@@ -298,7 +298,7 @@ python app.py
 
 <strong><i>Search options</i></strong>: 
 <br/><br/>
-<img src="">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/recommendation-engine/images/recommemdation-tool-search-options.png?raw=true">
 <br/><br/>
 
 
