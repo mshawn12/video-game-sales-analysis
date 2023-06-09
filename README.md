@@ -268,7 +268,7 @@ python app.py
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/bar_geo.png?raw=true" alt="Bar graph & geo chart">
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/top_10_all_games.png?raw=true" alt="Top 10 and all games - bar charts">
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/ratings_criticscores.png?raw=true" alt="Ratings and Critic Scores">
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/criticscores_footer.png?raw=true" alt="Critic Scores & Footer">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/criticscores_footer.png" alt="Critic Scores & Footer">
 <br/>
 
 ### Other Site Areas
@@ -279,7 +279,7 @@ python app.py
 <img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/resources_page.png?raw=true" alt="Resources page">
 
 <strong><i>About Us Page</i></strong>
-<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/mydashboard/images/about_us_page.png?raw=true" alt="About us page">
+<img src="https://github.com/mshawn12/video-game-sales-analysis/blob/main/images/about_us_page.png?raw=true" alt="About us page">
 
 
 -------------------------
