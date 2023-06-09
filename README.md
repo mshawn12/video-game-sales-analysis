@@ -14,7 +14,7 @@
 - <a href='#overview-of-video-game-recommendation-engine'>Overview of Recommendation Engine</a><br/>
 - <a href='#recommendation-tool-presentation'>Recommendation Engine Presentation</a><br/>
 - <a href='#video-game-recommendation-engine-process'>Recommendation Engine Process</a><br/>
-- <a href='#recommendation-tool-findings'></a>Recommendation Engine Findings<br/>
+- <a href='#recommendation-tool-findings'>Recommendation Engine Findings</a><br/>
 - <a href='#recommendation-tool-limitations-and-future-enhancements'>Recommendation Engine Limitations & Future Enhancements</a><br/>
 
 
@@ -375,7 +375,6 @@ The analysis process can be broken into two broad phases: (1) exploration and cl
 As you’ve learned, you’ll need to explore, clean, and reformat your data before you can begin answering your research questions. We recommend keeping track of these exploration and cleanup steps in a dedicated Jupyter notebook to keep you organized and make it easier to present your work later.
 
 After you’ve cleaned your data and are ready to start crunching numbers, you should track your work in a Jupyter notebook dedicated specifically to analysis. We recommend focusing your analysis on multiple techniques, such as aggregation, correlation, comparison, summary statistics, sentiment analysis, and time-series analysis. Don’t forget to include plots during both the exploration and analysis phases. Creating plots along the way can reveal insights and interesting trends in the data that you might not notice if you wait until you’re preparing for your presentation. Presentation requirements will be further explained in the next module.
-<p align="center"><img src="https://media1.giphy.com/media/fAD9SMlNWp0k84Ra1G/giphy.gif?cid=ecf05e47ymo4d66y72dp78ty0vvfrzyls5equ8i5rchv0ln4&rid=giphy.gif&ct=g" alt="video game GIF via GIPHY.com" width="150"></p>
 
 ### Project 4 Requirements
 Data Model Implementation (25 points)
@@ -397,3 +396,6 @@ Group Presentation (25 points)
 - Content, transitions, and conclusions flow smoothly within any time restrictions. (5 points)
 - The content is relevant to the project. (10 points)
 - The presentation maintains audience interest. (5 points)
+
+<p align="center"><img src="https://media1.giphy.com/media/fAD9SMlNWp0k84Ra1G/giphy.gif?cid=ecf05e47ymo4d66y72dp78ty0vvfrzyls5equ8i5rchv0ln4&rid=giphy.gif&ct=g" alt="video game GIF via GIPHY.com" width="150"></p>
+
